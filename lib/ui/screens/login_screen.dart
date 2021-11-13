@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:mvvm_simple/ui/utils/styles.dart';
-import 'package:mvvm_simple/ui/view_models/i_login_view_model.dart';
-import 'package:mvvm_simple/ui/view_models/login_view_model.dart';
-import 'package:mvvm_simple/ui/widgets/arrow_button.dart';
-import 'package:mvvm_simple/ui/widgets/big_button.dart';
-import 'package:mvvm_simple/ui/widgets/custom_textfield_withlabel.dart';
+import '../../ui/widgets/login_input_and_title.dart';
+import '../../ui/view_models/i_login_view_model.dart';
+import '../../ui/view_models/login_view_model.dart';
+import '../../ui/widgets/big_button.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -79,96 +77,6 @@ class _LoginScreenState extends State<LoginScreen> {
   }
 }
 
-class LoginTitle extends StatelessWidget {
-  const LoginTitle({
-    Key? key,
-  }) : super(key: key);
 
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      mainAxisSize: MainAxisSize.max,
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Padding(
-          padding: const EdgeInsets.symmetric(
-            horizontal: 16.0,
-          ),
-          child: Text(
-            'Sign In',
-            style: headingStyle,
-          ),
-        ),
-        Padding(
-          padding: const EdgeInsets.only(left: 180, top: 8.0, bottom: 16.0),
-          child: Text(
-            'to continue adventure of chance',
-            style: sloganStyle,
-          ),
-        ),
-      ],
-    );
-  }
-}
 
-class LoginInputsAndTitle extends StatelessWidget {
-  const LoginInputsAndTitle({
-    Key? key,
-    required ILoginViewModel loginViewModel,
-    required this.height,
-  })  : _loginViewModel = loginViewModel,
-        super(key: key);
 
-  final ILoginViewModel _loginViewModel;
-  final double height;
-
-  @override
-  Widget build(BuildContext context) {
-    return SizedBox(
-      height: height,
-      width: double.infinity,
-      child: Column(
-        mainAxisSize: MainAxisSize.max,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          const LoginTitle(),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: CustomTextFieldWithLabel(
-              label: 'Username',
-              controller: _loginViewModel.usernameController,
-              inputType: TextInputType.name,
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: CustomTextFieldWithLabel(
-              label: 'Password',
-              controller: _loginViewModel.passwordController,
-              inputType: TextInputType.visiblePassword,
-              isPassword: true,
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 4.0),
-            child: Row(
-              mainAxisSize: MainAxisSize.max,
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                Text(
-                  'Have not you been here? ',
-                  style: normalTextStyle,
-                ),
-                ArrowButton(
-                  onClick: () {
-                    debugPrint('arrow button in was clicked');
-                  },
-                ),
-              ],
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-}

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mvvm_simple/ui/utils/styles.dart';
+import '../../ui/utils/styles.dart';
 
 // ignore: must_be_immutable
 class BigButton extends StatelessWidget {

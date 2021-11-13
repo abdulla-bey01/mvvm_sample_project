@@ -3,7 +3,6 @@ import '../../app/models/login_model.dart';
 import '../../app/services/local_token_service.dart';
 import '../../app/services/login_service.dart';
 import 'package:uuid/uuid.dart';
-
 import 'base_view_model.dart';
 import 'i_login_view_model.dart';
 

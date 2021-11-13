@@ -5,14 +5,9 @@ import '../../app/migrations/login_migrator.dart';
 import '../../data/dtos/user_dto.dart';
 import '../../app/helpers/enums/request_state_enum.dart';
 import 'package:uuid/uuid.dart';
+import 'abstraction/i_login_service.dart';
 
-abstract class ILogInRequestService {
-  RequestState requestState;
-  ILogInRequestService({
-    required this.requestState,
-  });
-  Future<UserDto?>? logIn(LoginModel? login);
-}
+
 
 class LogInRequestService extends ILogInRequestService {
   LogInRequestService() : super(requestState: RequestState.default_);

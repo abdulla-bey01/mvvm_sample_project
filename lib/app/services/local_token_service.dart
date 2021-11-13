@@ -1,14 +1,8 @@
 import 'package:flutter/foundation.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'abstraction/i_local_token_service.dart';
 
-abstract class IlocalTokenService {
-  final Future<SharedPreferences> preferencesIsBeingCreated;
-  IlocalTokenService(this.preferencesIsBeingCreated);
 
-  Future<bool> save({@required String? token});
-  Future<String?> get();
-  Future<bool> remove();
-}
 
 class LocalTokenService extends IlocalTokenService {
   LocalTokenService() : super(SharedPreferences.getInstance());

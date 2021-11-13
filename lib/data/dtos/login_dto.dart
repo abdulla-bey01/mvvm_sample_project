@@ -1,5 +1,4 @@
 import 'dart:convert';
-
 import 'base_dto.dart';
 
 class LoginDto extends BaseDto {

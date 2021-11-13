@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mvvm_simple/ui/utils/styles.dart';
+import '../../ui/utils/styles.dart';
 
 class CustomTextFieldWithLabel extends StatefulWidget {
   const CustomTextFieldWithLabel({
