@@ -26,7 +26,10 @@ class LoginInputsAndTitle extends StatelessWidget {
         mainAxisSize: MainAxisSize.max,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const LoginTitle(),
+          const Padding(
+            padding: EdgeInsets.only(top: 24.0),
+            child: LoginTitle(),
+          ),
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: CustomTextFieldWithLabel(
