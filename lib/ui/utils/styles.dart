@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mvvm_simple/ui/utils/static_build_context.dart';
+import '../../ui/utils/static_build_context.dart';
 
 String _textStyleName = 'Metropolis';
 

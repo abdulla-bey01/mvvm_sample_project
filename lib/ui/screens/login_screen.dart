@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../ui/widgets/login_input_and_title.dart';
-import '../../ui/view_models/i_login_view_model.dart';
-import '../../ui/view_models/login_view_model.dart';
+import '../view_models/abstraction/i_login_view_model.dart';
+import '../view_models/concrency/login_view_model.dart';
 import '../../ui/widgets/big_button.dart';
 
 class LoginScreen extends StatefulWidget {

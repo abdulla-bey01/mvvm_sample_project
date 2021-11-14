@@ -25,7 +25,7 @@ class LogInRequestService extends ILogInRequestService {
 
       const _statusCode = 200; 
 
-      if (_statusCode > 100) {
+      if (_statusCode == 200) {
         requestState = RequestState.successfull;
       } else {
         requestState = RequestState.unsuccesfull;

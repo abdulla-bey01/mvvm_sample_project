@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../ui/utils/styles.dart';
-import '../../ui/view_models/i_login_view_model.dart';
+import '../view_models/abstraction/i_login_view_model.dart';
 import 'arrow_button.dart';
 
 import 'custom_textfield_withlabel.dart';

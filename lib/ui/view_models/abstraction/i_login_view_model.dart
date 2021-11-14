@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import '../../app/services/abstraction/i_local_token_service.dart';
-import '../../app/services/abstraction/i_login_service.dart';
+import '../../../app/services/abstraction/i_local_token_service.dart';
+import '../../../app/services/abstraction/i_login_service.dart';
 import 'base_view_model.dart';
 
 abstract class ILoginViewModel extends BaseViewModel {
