@@ -20,10 +20,10 @@ class LoginCommand extends IBaseCommand {
     final _loginModel = data;
     return !_loginModel.username.isNullorWhiteSpace &&
         !_loginModel.password.isNullorWhiteSpace;
-  }
+  } 
 
   @override
-  execute(BaseViewModel? viewModel) async {
+  void execute(BaseViewModel? viewModel) async {
     if (viewModel is! LoginViewModel) {
       throw Exception('LoginViewModel must be sent to login command');
     }

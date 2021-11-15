@@ -13,7 +13,7 @@ class LogOutCommand extends IBaseCommand {
   }
 
   @override
-  execute(BaseViewModel? viewModel) async {
+  void execute(BaseViewModel? viewModel) async {
     final _localTokenService = LocalTokenService();
     final _token = await _localTokenService.get();
     if (!canExecute(_token)) {
