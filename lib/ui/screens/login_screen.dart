@@ -64,7 +64,8 @@ class _LoginScreenState extends State<LoginScreen> {
                     padding: const EdgeInsets.all(8.0),
                     child: BigButton(
                       text: 'SIGN IN',
-                      onClick: _loginViewModel.logIn,
+                      onClick: () => _loginViewModel.loginCommand
+                          ?.execute(_loginViewModel),
                     ),
                   ),
                 ),
@@ -76,7 +77,3 @@ class _LoginScreenState extends State<LoginScreen> {
     );
   }
 }
-
-
-
-
