@@ -61,7 +61,7 @@ class _LoginResultScreenState extends State<LoginResultScreen> {
                     Text(
                       _loginResultViewModel?.loginState ==
                               RequestState.successfull
-                          ? 'completely logined succesfully'
+                          ? 'User was logined and token was saved'
                           : 'could not login',
                       style: normalTextStyle,
                     ),
