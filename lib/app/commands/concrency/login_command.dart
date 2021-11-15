@@ -20,7 +20,7 @@ class LoginCommand extends IBaseCommand {
     final _loginModel = data;
     return !_loginModel.username.isNullorWhiteSpace &&
         !_loginModel.password.isNullorWhiteSpace;
-  } 
+  }
 
   @override
   void execute(BaseViewModel? viewModel) async {
@@ -36,9 +36,7 @@ class LoginCommand extends IBaseCommand {
     final _loginModel = _loginViewModel.loginModel;
     _loginModel.id = const Uuid().v1().toString();
 
-    _loginViewModel.loginState = RequestState.waiting;
-    final _loginResultViewModel =
-        LoginResultViewModel(_loginViewModel.loginState);
+    final _loginResultViewModel = LoginResultViewModel(RequestState.waiting);
     //if you use push in stead of pushReplacement, it the datas user enetered will be stayed in textfield when use will pop next screen from tree
     navigatorKey.currentState?.pushReplacement(
       MaterialPageRoute(
@@ -61,15 +59,9 @@ class LoginCommand extends IBaseCommand {
     final _token = _loginedUser.id.toString();
     final _localTokenService = LocalTokenService();
     final _tokenIsSaved = await _localTokenService.save(token: _token);
-
-    if (_tokenIsSaved) {
-      _loginResultViewModel.updateUi!(() {
-        _loginResultViewModel.loginState = RequestState.successfull;
-      });
-    } else {
-      _loginResultViewModel.updateUi!(() {
-        _loginResultViewModel.loginState = RequestState.unsuccesfull;
-      });
-    }
+    _loginResultViewModel.updateUi!(() {
+      _loginResultViewModel.loginState =
+          _tokenIsSaved ? RequestState.successfull : RequestState.unsuccesfull;
+    });
   }
 }
