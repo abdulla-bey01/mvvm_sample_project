@@ -1,6 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mvvm_simple/app/services/abstraction/i_login_service.dart';
-import 'package:mvvm_simple/app/services/login_service.dart';
+import 'package:mvvm_simple/app/services/concrency/login_service.dart';
 import 'package:mvvm_simple/app/models/login_model.dart';
 import 'package:uuid/uuid.dart';
 

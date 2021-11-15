@@ -1,5 +1,5 @@
 import '../../../app/commands/abstraction/i_base_command.dart';
-import '../../../app/services/local_token_service.dart';
+import '../../services/concrency/local_token_service.dart';
 import '../../../ui/screens/login_screen.dart';
 import '../../../ui/view_models/abstraction/base_view_model.dart';
 
