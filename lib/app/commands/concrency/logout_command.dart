@@ -1,6 +1,9 @@
-import 'package:mvvm_simple/app/commands/abstraction/i_base_command.dart';
-import 'package:mvvm_simple/app/services/local_token_service.dart';
-import 'package:mvvm_simple/ui/view_models/abstraction/base_view_model.dart';
+import '../../../app/commands/abstraction/i_base_command.dart';
+import '../../../app/services/local_token_service.dart';
+import '../../../ui/screens/login_screen.dart';
+import '../../../ui/view_models/abstraction/base_view_model.dart';
+
+import '../../../main.dart';
 
 class LogOutCommand extends IBaseCommand {
   @override
@@ -14,14 +17,14 @@ class LogOutCommand extends IBaseCommand {
     final _localTokenService = LocalTokenService();
     final _token = await _localTokenService.get();
     if (!canExecute(_token)) {
-      viewModel!.showSnackBar('There is no logined user in app data');
+      navigatorKey.currentState?.pushNamed(LoginScreen.route);
       return;
     }
     final _tokenIsRemoved = await _localTokenService.remove();
     if (_tokenIsRemoved) {
-      viewModel!.showSnackBar('user logout succesfully');
+      navigatorKey.currentState?.pushNamed(LoginScreen.route);
     } else {
-      viewModel!.showSnackBar('user could not logout succesfully');
+      viewModel!.showSnackBar!('user could not logout succesfully');
     }
   }
 }

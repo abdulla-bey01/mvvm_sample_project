@@ -58,8 +58,7 @@ class LoginInputsAndTitle extends StatelessWidget {
                   style: normalTextStyle,
                 ),
                 ArrowButton(
-                  onClick: () =>
-                      _loginViewModel.logOutCommand?.execute(_loginViewModel),
+                  onClick: null,
                 ),
               ],
             ),

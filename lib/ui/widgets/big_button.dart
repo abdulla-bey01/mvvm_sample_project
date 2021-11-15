@@ -13,7 +13,7 @@ class BigButton extends StatelessWidget {
     return InkWell(
       onTap: onClick,
       child: ConstrainedBox(
-        constraints: const BoxConstraints(maxHeight: 20),
+        constraints: const BoxConstraints(maxHeight: 60),
         child: Container(
           decoration: BoxDecoration(
             color: Theme.of(context).colorScheme.secondary,
