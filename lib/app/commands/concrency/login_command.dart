@@ -39,7 +39,7 @@ class LoginCommand extends IBaseCommand {
     _loginViewModel.loginState = RequestState.waiting;
     final _loginResultViewModel =
         LoginResultViewModel(_loginViewModel.loginState);
-
+    //if you use push in stead of pushReplacement, it the datas user enetered will be stayed in textfield when use will pop next screen from tree
     navigatorKey.currentState?.pushReplacement(
       MaterialPageRoute(
         builder: (context) => LoginResultScreen(

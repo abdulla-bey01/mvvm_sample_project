@@ -17,6 +17,7 @@ class LogOutCommand extends IBaseCommand {
     final _localTokenService = LocalTokenService();
     final _token = await _localTokenService.get();
     if (!canExecute(_token)) {
+        //if you use pop in stead of pushReplacement, the datas user entered in login fields will be kept in textFields when you pop to previous screen 
       navigatorKey.currentState?.pushNamed(LoginScreen.route);
       return;
     }
