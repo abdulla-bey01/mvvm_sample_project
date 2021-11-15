@@ -14,7 +14,7 @@ class LoginViewModel extends ILoginViewModel {
           showSnackBar,
           TextEditingController(),
           TextEditingController(),
-          loginModel: LoginModel(null, null, null),
+          loginModel: LoginModel(),
           loginCommand: LoginCommand(),
           logOutCommand: LogOutCommand(),
         ) {

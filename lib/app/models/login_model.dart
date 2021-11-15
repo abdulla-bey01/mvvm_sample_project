@@ -4,11 +4,11 @@ class LoginModel extends BaseModel {
   String? username;
   String? password;
 
-  LoginModel(
+  LoginModel({
     dynamic id,
     this.username,
     this.password,
-  );
+  });
 
   LoginModel.createNamed({
     dynamic id,
