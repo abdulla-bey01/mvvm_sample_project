@@ -40,7 +40,7 @@ class LoginCommand extends IBaseCommand {
     final _loginResultViewModel =
         LoginResultViewModel(_loginViewModel.loginState);
 
-    navigatorKey.currentState?.push(
+    navigatorKey.currentState?.pushReplacement(
       MaterialPageRoute(
         builder: (context) => LoginResultScreen(
           loginResultViewModel: _loginResultViewModel,
