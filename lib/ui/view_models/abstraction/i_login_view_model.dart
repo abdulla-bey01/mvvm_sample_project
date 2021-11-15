@@ -10,7 +10,7 @@ abstract class ILoginViewModel extends BaseViewModel {
   late IBaseCommand? loginCommand;
   late IBaseCommand? logOutCommand;
   late LoginModel loginModel;
-  RequestState loginState;
+  late RequestState loginState;
 
   ILoginViewModel(
     UpdateUi updateUi,
