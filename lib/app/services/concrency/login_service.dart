@@ -1,7 +1,7 @@
 import 'package:flutter/foundation.dart';
-import '../../models/login_model.dart';
+import '/data//models/login_model.dart';
+import '/data/migrations/login_migrator.dart';
 import '../../../data/dtos/login_dto.dart';
-import '../../migrations/login_migrator.dart';
 import '../../../data/dtos/user_dto.dart';
 import 'package:uuid/uuid.dart';
 import '../abstraction/i_login_service.dart';

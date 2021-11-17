@@ -1,4 +1,4 @@
-import '../../app/models/login_model.dart';
+import '/data//models/login_model.dart';
 import '../../data/dtos/login_dto.dart';
 import 'migrator.dart';
 
