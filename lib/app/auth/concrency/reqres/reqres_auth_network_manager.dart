@@ -39,5 +39,5 @@ class ReqResAuthNetworkManager extends IRegResNetworkManager
   Future logOut(String token) async {
     debugPrint('log outed');
     return true;
-  } 
+  }
 }

@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import '../../app/helpers/enums/request_state_enum.dart';
-import '../../../ui/utils/styles.dart';
-import '../../ui/view_models/abstraction/i_login_result_view_model.dart';
-import '../../ui/widgets/big_button.dart';
+import '/app/helpers/enums/request_state_enum.dart';
+import '/ui/utils/styles.dart';
+import '/ui/view_models/abstraction/i_login_result_view_model.dart';
 
 class LoginResultScreen extends StatefulWidget {
   const LoginResultScreen({
