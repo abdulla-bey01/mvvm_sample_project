@@ -12,14 +12,14 @@ class LoginViewModel extends ILoginViewModel {
   }) : super(
           updateUi,
           showSnackBar,
-          TextEditingController(),
-          TextEditingController(),
+          TextEditingController(text: 'eve.holt@reqres.in'),
+          TextEditingController(text: 'pistol'),
           loginModel: LoginModel(),
           loginCommand: LoginCommand(),
           logOutCommand: LogOutCommand(),
         ) {
-    usernameController.addListener(() {
-      loginModel.username = usernameController.text;
+    emailController.addListener(() {
+      loginModel.email = emailController.text;
     });
     passwordController.addListener(() {
       loginModel.password = passwordController.text;

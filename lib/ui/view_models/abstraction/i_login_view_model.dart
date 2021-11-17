@@ -4,7 +4,7 @@ import '/app/commands/abstraction/i_base_command.dart';
 import 'base_view_model.dart';
 
 abstract class ILoginViewModel extends BaseViewModel {
-  final TextEditingController usernameController;
+  final TextEditingController emailController;
   final TextEditingController passwordController;
   late IBaseCommand? loginCommand;
   late IBaseCommand? logOutCommand;
@@ -13,7 +13,7 @@ abstract class ILoginViewModel extends BaseViewModel {
   ILoginViewModel(
     UpdateUi updateUi,
     ShowSnackBar showSnackBar,
-    this.usernameController,
+    this.emailController,
     this.passwordController, {
     required this.loginModel,
     required this.loginCommand,

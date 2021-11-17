@@ -33,8 +33,8 @@ class LoginInputsAndTitle extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: CustomTextFieldWithLabel(
-              label: 'Username',
-              controller: _loginViewModel.usernameController,
+              label: 'Email',
+              controller: _loginViewModel.emailController,
               inputType: TextInputType.name,
             ),
           ),

@@ -18,7 +18,7 @@ class LoginCommand extends IBaseCommand {
   bool canExecute(dynamic data) {
     if (data is! LoginModel) return false;
     final _loginModel = data;
-    return !_loginModel.username.isNullorWhiteSpace &&
+    return !_loginModel.email.isNullorWhiteSpace &&
         !_loginModel.password.isNullorWhiteSpace;
   }
 
@@ -32,7 +32,7 @@ class LoginCommand extends IBaseCommand {
       _loginViewModel.showSnackBar!('non-correct login model was sent');
       return;
     }
-
+    
     final _loginModel = _loginViewModel.loginModel;
     _loginModel.id = const Uuid().v1().toString();
 
@@ -47,8 +47,8 @@ class LoginCommand extends IBaseCommand {
     );
 
     final ILogInRequestService _requestService = LogInRequestService();
-    final _loginedUser = await _requestService.logIn(_loginModel);
-    if (_loginedUser == null) {
+    final _token = await _requestService.logIn(_loginModel);
+    if (_token == null) {
       _loginResultViewModel.updateUi!(() {
         _loginResultViewModel.loginState = RequestState.unsuccesfull;
       });
@@ -56,7 +56,6 @@ class LoginCommand extends IBaseCommand {
     }
 
     //save token coming from server
-    final _token = _loginedUser.id.toString();
     final _localTokenService = LocalTokenService();
     final _tokenIsSaved = await _localTokenService.save(token: _token);
     _loginResultViewModel.updateUi!(() {

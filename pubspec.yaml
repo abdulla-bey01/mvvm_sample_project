@@ -32,8 +32,7 @@ dependencies:
   uuid: ^3.0.5
   enum_to_string: ^2.0.1
   shared_preferences: ^2.0.8
-  page_transition: ^2.0.4
-  get: ^4.3.8
+  http: ^0.13.4
 
 
   # The following adds the Cupertino Icons font to your application.

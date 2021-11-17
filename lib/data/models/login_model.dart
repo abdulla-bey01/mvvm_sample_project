@@ -1,12 +1,12 @@
 import 'base_model.dart';
 
 class LoginModel extends BaseModel {
-  String? username;
+  String? email;
   String? password;
 
   LoginModel({
     dynamic id,
-    this.username,
+    this.email,
     this.password,
   }) {
     this.id = id;
@@ -14,7 +14,7 @@ class LoginModel extends BaseModel {
 
   LoginModel.createNamed({
     dynamic id,
-    this.username,
+    this.email,
     this.password,
   }) {
     this.id = id;

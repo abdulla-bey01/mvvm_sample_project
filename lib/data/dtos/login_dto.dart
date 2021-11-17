@@ -2,31 +2,31 @@ import 'dart:convert';
 import 'base_dto.dart';
 
 class LoginDto extends BaseDto {
-  final String? username;
+  final String? email;
   final String? password;
 
   LoginDto(
     dynamic id,
-    this.username,
+    this.email,
     this.password,
   )   : assert(id != null, 'id can not be null'),
-        assert(username != null, 'username can not be null'),
+        assert(email != null, 'email can not be null'),
         assert(password != null, 'name can not be null'),
         super(id: id);
 
   LoginDto.createNamed({
     dynamic id,
-    this.username,
+    this.email,
     this.password,
   })  : assert(id != null, 'id can not be null'),
-        assert(username != null, 'username can not be null'),
+        assert(email != null, 'email can not be null'),
         assert(password != null, 'name can not be null'),
         super(id: id);
 
   Map<String, dynamic> toMap() {
     return {
       'id': id,
-      'username': username,
+      'email': email,
       'password': password,
     };
   }
@@ -34,7 +34,7 @@ class LoginDto extends BaseDto {
   factory LoginDto.fromMap(Map<String, dynamic>? map) {
     return LoginDto.createNamed(
       id: map?['id'] ?? '',
-      username: map?['username'] ?? '',
+      email: map?['email'] ?? '',
       password: map?['password'] ?? '',
     );
   }
@@ -46,5 +46,5 @@ class LoginDto extends BaseDto {
 
   @override
   String toString() =>
-      'LoginDto(id: $id, username: $username, password: $password)';
+      'LoginDto(id: $id, email: $email, password: $password)';
 }

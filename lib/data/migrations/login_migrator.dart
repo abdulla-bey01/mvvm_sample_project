@@ -7,7 +7,7 @@ class LoginMigrator extends Migrator<LoginModel, LoginDto> {
   LoginDto? migrateToDto(LoginModel? model) {
     return LoginDto.createNamed(
       id: model?.id,
-      username: model?.username,
+      email: model?.email,
       password: model?.password,
     );
   }
@@ -16,7 +16,7 @@ class LoginMigrator extends Migrator<LoginModel, LoginDto> {
   LoginModel? migrateToModel(LoginDto? dto) {
     return LoginModel.createNamed(
       id: dto?.id,
-      username: dto?.username,
+      email: dto?.email,
       password: dto?.password,
     );
   }

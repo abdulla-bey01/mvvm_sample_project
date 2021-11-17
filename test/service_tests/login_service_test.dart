@@ -12,7 +12,7 @@ void main() {
   test('log in testing', () async {
     final _loginModel = LoginModel.createNamed(
       id: const Uuid().v1().toString(),
-      username: 'abdullabayli',
+      email: 'abdullabayli',
       password: 'mypass',
     );
     final _loginResult = await _loginService.logIn(_loginModel);
