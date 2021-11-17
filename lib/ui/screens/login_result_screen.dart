@@ -46,38 +46,36 @@ class _LoginResultScreenState extends State<LoginResultScreen> {
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.primary,
       body: SafeArea(
-        child: SizedBox(
-          height: _height,
-          width: _width,
-          child: _loginResultViewModel?.loginState == RequestState.waiting
-              ? const Center(
-                  child: CircularProgressIndicator(
-                    valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
-                  ),
-                )
-              : Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      _loginResultViewModel?.loginState ==
-                              RequestState.successfull
-                          ? 'User was logined and token was saved'
-                          : 'could not login',
-                      style: normalTextStyle,
+        child: InkWell(
+          onTap: () =>
+              _loginResultViewModel?.loginState == RequestState.successfull
+                  ? _loginResultViewModel?.passToMainScreenCommand.execute(null)
+                  : _loginResultViewModel?.tryLoginAgainCommand.execute(null),
+          child: SizedBox(
+            height: _height,
+            width: _width,
+            child: _loginResultViewModel?.loginState == RequestState.waiting
+                ? const Center(
+                    child: CircularProgressIndicator(
+                      valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
                     ),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: BigButton(
-                        text: _loginResultViewModel?.loginState ==
-                                RequestState.successfull
-                            ? 'SIGN OUT'
-                            : 'TRY AGAIN',
-                        onClick: () => _loginResultViewModel?.logOutCommand
-                            .execute(_loginResultViewModel),
+                  )
+                : Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.all(16.0),
+                        child: Text(
+                          _loginResultViewModel?.loginState ==
+                                  RequestState.successfull
+                              ? 'User was logined, click on screen to pass to main screen'
+                              : 'Could not login, click on screen to try again',
+                          style: normalTextStyle,
+                        ),
                       ),
-                    ),
-                  ],
-                ),
+                    ],
+                  ),
+          ),
         ),
       ),
     );

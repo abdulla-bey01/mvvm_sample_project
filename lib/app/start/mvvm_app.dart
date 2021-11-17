@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import '../../app/helpers/extension-methods/color_extension.dart';
+import '/ui/screens/main_screen.dart';
+import '/app/helpers/extension-methods/color_extension.dart';
 import '/ui/screens/login_result_screen.dart';
 import '/ui/screens/login_screen.dart';
 
@@ -26,6 +27,7 @@ class MvvmApp extends StatelessWidget {
       routes: {
         LoginScreen.route: (_) => const LoginScreen(),
         LoginResultScreen.route: (_) => const LoginResultScreen(),
+        MainScreen.route: (_) => const MainScreen(),
       },
       initialRoute: LoginScreen.route,
     );
