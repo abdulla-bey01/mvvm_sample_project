@@ -1,4 +1,4 @@
 abstract class BaseModel {
-  dynamic id;
+  late dynamic id;
   BaseModel({this.id});
 }

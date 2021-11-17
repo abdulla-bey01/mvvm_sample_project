@@ -1,6 +1,6 @@
 import 'package:flutter/foundation.dart';
 
-abstract class IlocalTokenService {
+abstract class ITokenRepository {
   Future<bool> save({@required String? token});
   Future<String?> get();
   Future<bool> remove();

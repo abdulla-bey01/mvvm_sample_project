@@ -27,5 +27,12 @@ void main() {
       final _token = await _localTokenService.get();
       expect(_token, isNotNull);
     });
+    test('Token updating test', () async {
+      await _localTokenService.save(token: '+994703353383');
+      var _token = await _localTokenService.get();
+      await _localTokenService.update(token: '+9947033533994703353383');
+      _token = await _localTokenService.get();
+      expect(_token, isNotNull);
+    });
   });
 }

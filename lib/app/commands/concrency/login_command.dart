@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../../app/start/mvvm_app.dart';
 import '../../../ui/screens/login_result_screen.dart';
 import '../../../ui/view_models/abstraction/base_view_model.dart';
 import '../../../ui/view_models/concrency/login_result_view_model.dart';
@@ -10,7 +11,6 @@ import '../../services/concrency/local_token_service.dart';
 import '../../services/concrency/login_service.dart';
 import '../../../ui/view_models/concrency/login_view_model.dart';
 import 'package:uuid/uuid.dart';
-import '../../../main.dart';
 import '../../helpers/extension-methods/string_extension.dart';
 
 class LoginCommand extends IBaseCommand {

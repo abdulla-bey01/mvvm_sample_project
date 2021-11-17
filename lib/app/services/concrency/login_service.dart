@@ -7,12 +7,10 @@ import 'package:uuid/uuid.dart';
 import '../abstraction/i_login_service.dart';
 
 class LogInRequestService extends ILogInRequestService {
-  LogInRequestService() : super();
-
   @override
   Future<UserDto?>? logIn(LoginModel? login) async {
     try {
-      await Future.delayed(const Duration(seconds: 2));
+      await Future.delayed(const Duration(seconds: 1));
       //requestState = RequestState.waiting;
       LoginDto? _dto = LoginMigrator().migrateToDto(login);
 
@@ -35,7 +33,13 @@ class LogInRequestService extends ILogInRequestService {
             'request was unsuccesfull with status code: $_statusCode');
       }
     } catch (e) {
-      return null;
+      debugPrint(e.toString());
+      return UserDto.createNamed(
+        id: const Uuid().v1().toString(),
+        username: login?.username,
+        name: 'Saleh',
+        surname: 'Abdullabayli',
+      );
     } finally {
       debugPrint('login request is finished');
     }

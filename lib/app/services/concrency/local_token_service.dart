@@ -1,31 +1,38 @@
 import 'package:flutter/foundation.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+import '../../../app/di/di_container.dart';
+import '../../../data/local/abstraction/i_token_repository.dart';
 import '../abstraction/i_local_token_service.dart';
 
-
-
 class LocalTokenService extends IlocalTokenService {
-  LocalTokenService() : super(SharedPreferences.getInstance());
-
   @override
   Future<String?> get() async {
-    final _prefs = await preferencesIsBeingCreated;
-    final _token = _prefs.getString(runtimeType.toString());
-    return _token;
+    ITokenRepository? _repository =
+        AppDiContainer.instance.unitOfWork.tokenRepository;
+    return _repository!.get();
   }
 
   @override
   Future<bool> remove() async {
-    final _prefs = await preferencesIsBeingCreated;
-    final _successfullyRemoved = await _prefs.remove(runtimeType.toString());
+    ITokenRepository? _repository =
+        AppDiContainer.instance.unitOfWork.tokenRepository;
+    final _successfullyRemoved = await _repository!.remove();
     return _successfullyRemoved;
   }
 
   @override
   Future<bool> save({@required String? token}) async {
-    final _prefs = await preferencesIsBeingCreated;
+    ITokenRepository? _repository =
+        AppDiContainer.instance.unitOfWork.tokenRepository;
+    final _successfullySaved = await _repository!.save(token: token ?? 'token');
+    return _successfullySaved;
+  }
+
+  @override
+  Future<bool> update({String? token}) async {
+    ITokenRepository? _repository =
+        AppDiContainer.instance.unitOfWork.tokenRepository;
     final _successfullySaved =
-        await _prefs.setString(runtimeType.toString(), token ?? 'token');
+        await _repository!.update(token: token ?? 'token');
     return _successfullySaved;
   }
 }
