@@ -2,7 +2,7 @@ import 'package:flutter/foundation.dart';
 import '/app/di/di_container.dart';
 import '/data//models/login_model.dart';
 import '/data/migrations/login_migrator.dart';
-import '../../../data/dtos/login_dto.dart';
+import '/data/dtos/login_dto.dart';
 import '../abstraction/i_login_service.dart';
 
 class LogInRequestService extends ILogInRequestService {
@@ -17,7 +17,7 @@ class LogInRequestService extends ILogInRequestService {
       if (_token != null) {
         return _token;
       } else {
-        throw Exception('request was unsuccesfull with');
+        throw Exception('request was unsuccesfull');
       }
     } catch (e) {
       debugPrint(e.toString());

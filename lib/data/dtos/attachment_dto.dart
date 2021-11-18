@@ -10,7 +10,5 @@ class AttachmentDto extends BaseDto {
     required dynamic id,
     required this.url,
     required this.type,
-  }) {
-    id = id;
-  }
+  }) : super(id: id);
 }

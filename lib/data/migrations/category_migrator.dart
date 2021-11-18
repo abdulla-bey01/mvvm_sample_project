@@ -8,6 +8,7 @@ class CategoryMigrator extends Migrator<CategoryModel, CategoryDto> {
     return CategoryDto.createNamed(
       id: model?.id,
       title: model?.title,
+      slogan: model?.slogan,
     );
   }
 
@@ -16,6 +17,7 @@ class CategoryMigrator extends Migrator<CategoryModel, CategoryDto> {
     return CategoryModel.createNamed(
       id: dto?.id,
       title: dto?.title,
+      slogan: dto?.slogan,
     );
   }
 }

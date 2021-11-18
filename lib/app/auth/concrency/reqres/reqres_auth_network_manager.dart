@@ -1,6 +1,6 @@
 import 'dart:convert';
 import 'package:flutter/foundation.dart';
-import '../../abstraction/i_auth_network_manager.dart';
+import '../../abstraction/base/i_auth_network_manager.dart';
 import '../../abstraction/regres/i_regres_network_manager.dart';
 import '/data/dtos/login_dto.dart';
 

@@ -7,13 +7,13 @@ class ProductModel extends BaseModel {
   final String? title;
   final String? description;
   final double? price;
+  final double? saledPrice;
   final int? raiting;
   final VendorModel? vendor;
   final List<CategoryModel?>? categories;
   final List<ColorVsAttachmentModel?>? attachmentsWithColors;
-
-  // final List<AttachmentModel?>? attachments;
-  // final List<RgbColorModel?>? colors;
+  final int? ratedBy;
+  late bool favrotiedByUser;
 
   ProductModel.createNamed({
     required dynamic id,
@@ -24,9 +24,8 @@ class ProductModel extends BaseModel {
     required this.vendor,
     required this.categories,
     required this.attachmentsWithColors,
-    // required this.attachments,
-    // required this.colors,
-  }) {
-    id = id;
-  }
+    this.ratedBy = 0,
+    this.saledPrice = 0,
+    this.favrotiedByUser = false,
+  }) : super(id: id);
 }

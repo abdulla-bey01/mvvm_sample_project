@@ -15,7 +15,7 @@ class FakeProductsNetworkManager extends INetworkManager
 
   @override
   Future<List<ProductDto>> getAll() async {
-    await Future.delayed(const Duration(seconds: 2));
+    await Future.delayed(const Duration(milliseconds: 500));
     List<ProductDto> _products = [];
     ProductDto _product = ProductDto.createNamed(
       id: 1,
@@ -23,9 +23,23 @@ class FakeProductsNetworkManager extends INetworkManager
       description: 'iphone 12 pro max description',
       price: 3900.0,
       raiting: 5,
+      ratedBy: 13,
       categories: [
-        CategoryDto.createNamed(id: 1, title: 'Apple'),
-        CategoryDto.createNamed(id: 2, title: 'Smartphones'),
+        CategoryDto.createNamed(
+          id: 1,
+          title: 'Sale',
+          slogan: 'Super summer sale',
+        ),
+        CategoryDto.createNamed(
+          id: 2,
+          title: 'New',
+          slogan: 'You’ve never seen it before!',
+        ),
+        CategoryDto.createNamed(
+          id: 3,
+          title: 'Smartphones',
+          slogan: 'Smarter than you',
+        ),
       ],
       vendor: VendorDto.createNamed(
         id: 1,
@@ -37,8 +51,7 @@ class FakeProductsNetworkManager extends INetworkManager
           color: RgbColorDto.createNamed(255, 255, 255),
           attachment: AttachmentDto.createNamed(
             id: 1,
-            url:
-                'https://unsplash.com/photos/Gx34eWExGD8/download?ixid=MnwxMjA3fDB8MXxzZWFyY2h8MTJ8fGlwaG9uZTEyJTIwcHJvJTIwbWF4fHwwfHx8fDE2MzcxNjk3NTY&force=true',
+            url: 'https://unsplash.com/photos/tze1kKj7Lgg/download?force=true',
             type: AttachmentType.jpg,
           ),
         ),
@@ -78,9 +91,23 @@ class FakeProductsNetworkManager extends INetworkManager
       description: 'iphone 12 pro max description',
       price: 3900.0,
       raiting: 5,
+      ratedBy: 15,
       categories: [
-        CategoryDto.createNamed(id: 1, title: 'Apple'),
-        CategoryDto.createNamed(id: 2, title: 'Smartphones'),
+        CategoryDto.createNamed(
+          id: 1,
+          title: 'Sale',
+          slogan: 'Super summer sale',
+        ),
+        CategoryDto.createNamed(
+          id: 2,
+          title: 'New',
+          slogan: 'You’ve never seen it before!',
+        ),
+        CategoryDto.createNamed(
+          id: 3,
+          title: 'Smartphones',
+          slogan: 'Smarter than you',
+        ),
       ],
       vendor: VendorDto.createNamed(
         id: 1,

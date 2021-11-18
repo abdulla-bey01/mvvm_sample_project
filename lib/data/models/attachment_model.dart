@@ -9,7 +9,5 @@ class AttachmentModel extends BaseModel {
     required dynamic id,
     required this.url,
     required this.type,
-  }) {
-    id = id;
-  }
+  }) : super(id: id);
 }

@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import '/ui/widgets/category_and_products_widget.dart';
+import '/ui/widgets/famous_sell_product_widget.dart';
 import '/app/helpers/enums/request_state_enum.dart';
 import '/ui/view_models/abstraction/i_main_screen_view_model.dart';
 import '/ui/view_models/concrency/main_screen_view_model.dart';
-import '/ui/widgets/product_widget.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({Key? key}) : super(key: key);
@@ -20,7 +22,6 @@ class _MainScreenState extends State<MainScreen> {
       updateUi: setState,
       showSnackBar: _showSnackBar,
     );
-    _mainScreenViewModel.getAllProductsCommand?.execute(_mainScreenViewModel);
     super.initState();
   }
 
@@ -37,31 +38,53 @@ class _MainScreenState extends State<MainScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('MainScreen'),
-      ),
-      body: _mainScreenViewModel.getAllProductsRequestState ==
-              RequestState.waiting
+      backgroundColor: Theme.of(context).colorScheme.primary,
+      body: (_mainScreenViewModel.getAllProductsRequestState ==
+                  RequestState.default_ ||
+              _mainScreenViewModel.getAllProductsRequestState ==
+                  RequestState.waiting)
           ? const Center(
-              child: CircularProgressIndicator(),
+              child: CircularProgressIndicator(
+                valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
+              ),
             )
           : _mainScreenViewModel.getAllProductsRequestState ==
-                  RequestState.waiting
+                  RequestState.unsuccesfull
               ? const Center(
                   child: Text('Products could not be loaded'),
                 )
-              : ListView.builder(
-                  itemCount: _mainScreenViewModel.products?.length,
-                  itemBuilder: (ctx, index) {
-                    final _product = _mainScreenViewModel.products?[index];
-                    return ProductWidget(
-                      product: _product,
-                      onClick: () => _mainScreenViewModel
-                          .passToProductDetailsCommand!
-                          .execute(_mainScreenViewModel),
-                    );
-                  },
+              : _buildBody(
+                  MediaQuery.of(context).size,
+                  Theme.of(context),
                 ),
+    );
+  }
+
+  Widget _buildBody(Size size, ThemeData theme) {
+    final _height = 536.h;
+    final _width = 376.w;
+    return SingleChildScrollView(
+      child: Column(
+        children: [
+          FamousSellProductWidget(
+            width: _width,
+            height: _height,
+            product: _mainScreenViewModel.mostFamousProduct!,
+          ),
+          SizedBox(
+            height: 33.0.h,
+          ),
+          ..._mainScreenViewModel.categories!.map((e) {
+            return Padding(
+              padding: EdgeInsets.only(bottom: 40.0.h),
+              child: CategoryAndProductsWidget(
+                category: e!,
+                products: _mainScreenViewModel.products!,
+              ),
+            );
+          }).toList(),
+        ],
+      ),
     );
   }
 }

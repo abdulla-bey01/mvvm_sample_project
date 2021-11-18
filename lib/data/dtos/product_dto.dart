@@ -7,12 +7,13 @@ class ProductDto extends BaseDto {
   final String? title;
   final String? description;
   final double? price;
+  final double? saledPrice;
   final int? raiting;
   final VendorDto? vendor;
-  // final List<AttachmentDto?>? attachments;
-  // final List<RgbColorDto?>? colors;
+  final int? ratedBy;
   final List<CategoryDto?>? categories;
   final List<ColorVsAttachmentDto?>? attachmentsWithColors;
+  late bool favrotiedByUser;
   ProductDto.createNamed({
     required dynamic id,
     required this.title,
@@ -22,9 +23,8 @@ class ProductDto extends BaseDto {
     required this.vendor,
     required this.categories,
     required this.attachmentsWithColors,
-    // required this.attachments,
-    // required this.colors,
-  }) {
-    id = id;
-  }
+    this.ratedBy = 0,
+    this.saledPrice = 0,
+    this.favrotiedByUser = false,
+  }) : super(id: id);
 }

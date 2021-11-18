@@ -6,7 +6,5 @@ class VendorModel extends BaseModel {
   VendorModel.createNamed({
     required dynamic id,
     required this.name,
-  }) {
-    id = id;
-  }
+  }) : super(id: id);
 }

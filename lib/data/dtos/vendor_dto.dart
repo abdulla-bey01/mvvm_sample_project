@@ -6,7 +6,5 @@ class VendorDto extends BaseDto {
   VendorDto.createNamed({
     required dynamic id,
     required this.name,
-  }) {
-    id = id;
-  }
+  }) : super(id: id);
 }

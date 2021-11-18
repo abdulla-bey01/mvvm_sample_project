@@ -13,20 +13,17 @@ class ProductMigrator extends Migrator<ProductModel, ProductDto> {
       title: model?.title,
       description: model?.description,
       price: model?.price,
+      saledPrice: model?.saledPrice,
       raiting: model?.raiting,
       vendor: VendorMigrator().migrateToDto(model?.vendor),
-      categories: model?.categories
+      ratedBy: model?.ratedBy,
+      favrotiedByUser: model!.favrotiedByUser,
+      categories: model.categories
           ?.map((e) => CategoryMigrator().migrateToDto(e))
           .toList(),
-      attachmentsWithColors: model?.attachmentsWithColors
+      attachmentsWithColors: model.attachmentsWithColors
           ?.map((e) => ColorVsAttachmentMigrator().migrateToDto(e))
           .toList(),
-      // attachments: model?.attachments
-      //     ?.map((e) => AttachmentMigrator().migrateToDto(e))
-      //     .toList(),
-      // colors: model?.colors
-      //     ?.map((e) => RgbColorMigrator().migrateToDto(e))
-      //     .toList(),
     );
   }
 
@@ -37,20 +34,17 @@ class ProductMigrator extends Migrator<ProductModel, ProductDto> {
       title: dto?.title,
       description: dto?.description,
       price: dto?.price,
+      saledPrice: dto?.saledPrice,
       raiting: dto?.raiting,
       vendor: VendorMigrator().migrateToModel(dto?.vendor),
-      categories: dto?.categories
+      ratedBy: dto?.ratedBy,
+      favrotiedByUser: dto!.favrotiedByUser,
+      categories: dto.categories
           ?.map((e) => CategoryMigrator().migrateToModel(e))
           .toList(),
-      attachmentsWithColors: dto?.attachmentsWithColors
+      attachmentsWithColors: dto.attachmentsWithColors
           ?.map((e) => ColorVsAttachmentMigrator().migrateToModel(e))
           .toList(),
-      // attachments: dto?.attachments
-      //     ?.map((e) => AttachmentMigrator().migrateToModel(e))
-      //     .toList(),
-      // colors: dto?.colors
-      //     ?.map((e) => RgbColorMigrator().migrateToModel(e))
-      //     .toList(),
     );
   }
 }

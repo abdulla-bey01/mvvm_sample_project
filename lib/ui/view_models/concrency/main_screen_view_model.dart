@@ -13,7 +13,11 @@ class MainScreenViewModel extends IMainScreenViewModel {
           showSnackBar: showSnackBar,
           products: [],
           getAllProductsCommand: GetAllProductsCommand(),
-          getAllProductsRequestState: RequestState.waiting,
+          getAllProductsRequestState: RequestState.default_,
           passToProductDetailsCommand: PassToProductDetailsCommand(),
-        );
+        ) {
+    if (getAllProductsRequestState == RequestState.default_) {
+      getAllProductsCommand?.execute(this);
+    }
+  }
 }

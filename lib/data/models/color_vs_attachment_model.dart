@@ -10,7 +10,5 @@ class ColorVsAttachmentModel extends BaseModel {
     required dynamic id,
     required this.color,
     required this.attachment,
-  }) {
-    id = id;
-  }
+  }) : super(id: id);
 }

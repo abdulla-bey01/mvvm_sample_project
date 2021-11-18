@@ -1,3 +1,5 @@
+import '/data/models/category_model.dart';
+
 import '/app/commands/abstraction/i_base_command.dart';
 import '/app/helpers/enums/request_state_enum.dart';
 import '/data/models/product_model.dart';
@@ -17,4 +19,18 @@ abstract class IMainScreenViewModel extends BaseViewModel {
   late IBaseCommand? getAllProductsCommand;
   late IBaseCommand? passToProductDetailsCommand;
   RequestState getAllProductsRequestState;
+  ProductModel? get mostFamousProduct => products![0];
+  List<CategoryModel?> _getCategories() {
+    List<CategoryModel?> _categories = [];
+    products?.forEach((element) {
+      element?.categories?.forEach((category) {
+        if (!_categories.any((element) => element?.id == category?.id)) {
+          _categories.add(category);
+        }
+      });
+    });
+    return _categories;
+  }
+
+  List<CategoryModel?>? get categories => _getCategories();
 }

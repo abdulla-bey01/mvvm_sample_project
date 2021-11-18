@@ -8,15 +8,11 @@ class LoginModel extends BaseModel {
     dynamic id,
     this.email,
     this.password,
-  }) {
-    this.id = id;
-  }
+  }) : super(id: id);
 
   LoginModel.createNamed({
     dynamic id,
     this.email,
     this.password,
-  }) {
-    this.id = id;
-  }
+  }) : super(id: id);
 }
