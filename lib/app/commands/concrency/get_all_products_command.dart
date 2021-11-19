@@ -3,7 +3,7 @@ import '/app/helpers/enums/request_state_enum.dart';
 import '/app/services/abstraction/i_product_service.dart';
 import '/app/services/concrency/product_service.dart';
 import '/ui/view_models/abstraction/base_view_model.dart';
-import '/ui/view_models/concrency/main_screen_view_model.dart';
+import '../../../ui/view_models/concrency/home_page_view_model.dart';
 
 class GetAllProductsCommand extends IBaseCommand {
   @override
@@ -13,7 +13,7 @@ class GetAllProductsCommand extends IBaseCommand {
 
   @override
   void execute(BaseViewModel? viewModel) async {
-    if (viewModel is! MainScreenViewModel) return;
+    if (viewModel is! HomePageModel) return;
     IProductsService _productService = ProductsService();
     try {
       final _products = await _productService.getAll();

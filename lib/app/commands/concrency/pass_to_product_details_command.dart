@@ -9,6 +9,6 @@ class PassToProductDetailsCommand extends IBaseCommand {
 
   @override
   void execute(BaseViewModel? viewModel) {
-    viewModel?.showSnackBar!('maybe later :) ');
+    viewModel?.showSnackBar('maybe later :) ');
   }
 }

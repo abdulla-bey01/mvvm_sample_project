@@ -6,6 +6,8 @@ import '/ui/screens/login_result_screen.dart';
 import '/ui/screens/login_screen.dart';
 
 final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
+final GlobalKey<ScaffoldMessengerState> scaffoldMessengerKey =
+    GlobalKey<ScaffoldMessengerState>();
 
 class MvvmApp extends StatelessWidget {
   const MvvmApp({Key? key}) : super(key: key);
@@ -17,6 +19,7 @@ class MvvmApp extends StatelessWidget {
       builder: () => MaterialApp(
         title: 'MVVM',
         navigatorKey: navigatorKey,
+        scaffoldMessengerKey: scaffoldMessengerKey,
         theme: ThemeData(
           primarySwatch: HexStringToColorExtension.hexStringToColor('#1E1F28')
               .convertToMaterialColor(),

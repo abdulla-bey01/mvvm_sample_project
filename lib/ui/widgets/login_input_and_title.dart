@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../ui/utils/styles.dart';
 import '../view_models/abstraction/i_login_view_model.dart';
 import 'arrow_button.dart';
@@ -31,7 +32,7 @@ class LoginInputsAndTitle extends StatelessWidget {
             child: LoginTitle(),
           ),
           Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: EdgeInsets.symmetric(vertical: 8.0.h),
             child: CustomTextFieldWithLabel(
               label: 'Email',
               controller: _loginViewModel.emailController,
@@ -39,7 +40,7 @@ class LoginInputsAndTitle extends StatelessWidget {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: EdgeInsets.symmetric(vertical: 8.0.h),
             child: CustomTextFieldWithLabel(
               label: 'Password',
               controller: _loginViewModel.passwordController,
@@ -48,7 +49,9 @@ class LoginInputsAndTitle extends StatelessWidget {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 4.0),
+            padding: const EdgeInsets.symmetric(
+              vertical: 8.0,
+            ),
             child: Row(
               mainAxisSize: MainAxisSize.max,
               mainAxisAlignment: MainAxisAlignment.end,

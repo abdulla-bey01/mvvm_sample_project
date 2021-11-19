@@ -21,18 +21,7 @@ class _LoginResultScreenState extends State<LoginResultScreen> {
   void initState() {
     _loginResultViewModel = widget.loginResultViewModel;
     _loginResultViewModel?.updateUi = setState;
-    _loginResultViewModel?.showSnackBar = _showSnackBar;
     super.initState();
-  }
-
-  void _showSnackBar(String content) {
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        content: Text(
-          content,
-        ),
-      ),
-    );
   }
 
   @override
@@ -42,6 +31,13 @@ class _LoginResultScreenState extends State<LoginResultScreen> {
     final _height = _sizes.height -
         MediaQuery.of(context).padding.bottom -
         MediaQuery.of(context).padding.top;
+    if (_loginResultViewModel?.loginState == RequestState.successfull) {
+      Future.delayed(
+        const Duration(seconds: 2),
+      ).then((value) {
+        _loginResultViewModel?.passToMainScreenCommand.execute(null);
+      });
+    }
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.primary,
       body: SafeArea(
@@ -67,9 +63,10 @@ class _LoginResultScreenState extends State<LoginResultScreen> {
                         child: Text(
                           _loginResultViewModel?.loginState ==
                                   RequestState.successfull
-                              ? 'User was logined, click on screen to pass to main screen'
+                              ? 'User was logined, click on screen or wait 2 second to pass to main screen'
                               : 'Could not login, click on screen to try again',
                           style: normalTextStyle,
+                          textAlign: TextAlign.center,
                         ),
                       ),
                     ],

@@ -8,10 +8,8 @@ import '../abstraction/i_login_view_model.dart';
 class LoginViewModel extends ILoginViewModel {
   LoginViewModel({
     required UpdateUi updateUi,
-    required ShowSnackBar showSnackBar,
   }) : super(
           updateUi,
-          showSnackBar,
           TextEditingController(text: 'eve.holt@reqres.in'),
           TextEditingController(text: 'pistol'),
           loginModel: LoginModel(),

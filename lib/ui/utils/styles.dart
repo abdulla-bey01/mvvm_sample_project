@@ -7,40 +7,39 @@ import '../../ui/utils/static_build_context.dart';
 //especially used in CustomTextFieldWithLabel to style hint text
 TextStyle infoHintStyle = TextStyle(
   //  fontFamily: _textStyleName,
-  color: Colors.white.withOpacity(0.3),
-  fontSize: 15,
+  color: Colors.grey,
+  fontSize: 11.0.sp,
   fontWeight: FontWeight.normal,
 );
 
 TextStyle sloganStyle = TextStyle(
   //  fontFamily: _textStyleName,
-  color: Colors.white.withOpacity(0.3),
-  fontSize: 13.5,
-  fontWeight: FontWeight.bold,
+  color: Colors.grey,
+  fontSize: 11.0.sp,
+  fontWeight: FontWeight.w600,
 );
 
 //used in Login, Register screens, and all the pages user in main screen
-TextStyle headingStyle = const TextStyle(
+TextStyle headingStyle =  TextStyle(
   //  fontFamily: _textStyleName,
   color: Colors.white,
-  fontSize: 44,
+  fontSize: 34.0.sp,
   fontWeight: FontWeight.bold,
 );
 
 //used in login screen to style 'have not you been here' text
-TextStyle normalTextStyle = const TextStyle(
+TextStyle normalTextStyle = TextStyle(
   //  fontFamily: _textStyleName,
   color: Colors.white,
-  fontSize: 18,
+  fontSize: 14.0.sp,
   fontWeight: FontWeight.normal,
 );
 
 //used in BigButton to style text which is contained by BigButton
-TextStyle bigButtonTextStyle = const TextStyle(
+TextStyle bigButtonTextStyle = TextStyle(
   //  fontFamily: _textStyleName,
   color: Colors.white,
-  fontSize: 18,
-  fontWeight: FontWeight.w700,
+  fontSize: 14.0.sp,
 );
 
 //used in bag page to style 'total amount' value
@@ -126,7 +125,7 @@ TextStyle countStyle = const TextStyle(
 TextStyle selectedNavBarItemTextStyle = TextStyle(
   //  fontFamily: _textStyleName,
   color: Theme.of(StaticBuildContext.instance.context).colorScheme.secondary,
-  fontSize: 15,
+  fontSize: 10.0.sp,
   fontWeight: FontWeight.normal,
   letterSpacing: 0.2,
 );
@@ -134,8 +133,8 @@ TextStyle selectedNavBarItemTextStyle = TextStyle(
 //used in navbaritem to style unselected item text
 TextStyle unselectedNavBarItemTextStyle = TextStyle(
   //  fontFamily: _textStyleName,
-  color: Colors.white.withOpacity(0.7),
-  fontSize: 15,
+  color: Colors.grey,
+  fontSize: 10.0.sp,
   fontWeight: FontWeight.normal,
   letterSpacing: 0.2,
 );
@@ -173,9 +172,9 @@ TextStyle size11TextStyleWhite = TextStyle(
 );
 
 //used in CustomTextFieldWidget to style text which will be type by user
-TextStyle textFieldTypingTextStyle = const TextStyle(
+TextStyle textFieldTypingTextStyle = TextStyle(
   color: Colors.white,
-  fontSize: 18,
+  fontSize: 14.0.sp,
   fontWeight: FontWeight.normal,
 );
 

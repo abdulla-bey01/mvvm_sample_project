@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../ui/utils/styles.dart';
 
 // ignore: must_be_immutable
@@ -17,7 +18,7 @@ class BigButton extends StatelessWidget {
         child: Container(
           decoration: BoxDecoration(
             color: Theme.of(context).colorScheme.secondary,
-            borderRadius: BorderRadius.circular(40.0),
+            borderRadius: BorderRadius.circular(40.0.r),
           ),
           child: Center(
             child: Text(

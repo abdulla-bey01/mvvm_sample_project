@@ -27,13 +27,12 @@ class LoginCommand extends IBaseCommand {
     if (viewModel is! LoginViewModel) {
       throw Exception('LoginViewModel must be sent to login command');
     }
-    final _loginViewModel = viewModel;
-    if (!canExecute(_loginViewModel.loginModel)) {
-      _loginViewModel.showSnackBar!('non-correct login model was sent');
+    if (!canExecute(viewModel.loginModel)) {
+      viewModel.showSnackBar('non-correct login model was sent');
       return;
     }
     
-    final _loginModel = _loginViewModel.loginModel;
+    final _loginModel = viewModel.loginModel;
     _loginModel.id = const Uuid().v1().toString();
 
     final _loginResultViewModel = LoginResultViewModel(RequestState.waiting);

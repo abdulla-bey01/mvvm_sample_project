@@ -12,11 +12,10 @@ abstract class ILoginViewModel extends BaseViewModel {
 
   ILoginViewModel(
     UpdateUi updateUi,
-    ShowSnackBar showSnackBar,
     this.emailController,
     this.passwordController, {
     required this.loginModel,
     required this.loginCommand,
     required this.logOutCommand,
-  }) : super(updateUi: updateUi, showSnackBar: showSnackBar);
+  }) : super(updateUi: updateUi);
 }

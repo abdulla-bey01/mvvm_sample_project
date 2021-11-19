@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../ui/utils/styles.dart';
 
 class CustomTextFieldWithLabel extends StatefulWidget {
@@ -37,23 +38,25 @@ class _CustomTextFieldWithLabelState extends State<CustomTextFieldWithLabel> {
           borderRadius: BorderRadius.circular(8.0),
         ),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Row(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(top: 8.0, left: 16),
-                  child: Text(
-                    widget.label,
-                    style: infoHintStyle,
-                  ),
-                ),
-              ],
+            Padding(
+              padding: EdgeInsets.only(top: 14.0.h, left: 20.w),
+              child: Text(
+                widget.label,
+                style: infoHintStyle,
+              ),
             ),
-            SizedBox(
-              height: MediaQuery.of(context).size.height * 0.06,
-              width: MediaQuery.of(context).size.width,
-              child: Padding(
-                padding: const EdgeInsets.only(left: 5),
+            Padding(
+              padding: EdgeInsets.only(
+                top: 0.0.h,
+                left: 8.w,
+                bottom: 15.0.h,
+              ),
+              child: SizedBox(
+                height: 20.0.h,
+                width: MediaQuery.of(context).size.width,
                 child: TextField(
                   controller: widget.controller,
                   textCapitalization: widget.shouldFirstLetterIsUpperCase
