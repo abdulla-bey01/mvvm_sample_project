@@ -5,10 +5,10 @@ import '/ui/widgets/category_and_products_widget.dart';
 import '/ui/widgets/famous_sell_product_widget.dart';
 import '/app/helpers/enums/request_state_enum.dart';
 import '../view_models/abstraction/i_home_page_view_model.dart';
-import '../view_models/concrency/home_page_view_model.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
+  const HomePage({Key? key, required this.homePageViewModel}) : super(key: key);
+  final IHomePageViewModel homePageViewModel;
   @override
   State<HomePage> createState() => _HomePageState();
 }
@@ -17,9 +17,8 @@ class _HomePageState extends State<HomePage> {
   late IHomePageViewModel _homePageViewModel;
   @override
   void initState() {
-    _homePageViewModel = HomePageViewModel(
-      updateUi: setState,
-    );
+    _homePageViewModel = widget.homePageViewModel;
+    _homePageViewModel.updateUi = setState;
     super.initState();
   }
 

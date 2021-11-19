@@ -7,13 +7,14 @@ import '../abstraction/i_home_page_view_model.dart';
 
 class HomePageViewModel extends IHomePageViewModel {
   HomePageViewModel({
-    required UpdateUi updateUi,
+    UpdateUi updateUi,
   }) : super(
           updateUi: updateUi,
           products: [],
           getAllProductsCommand: GetAllProductsCommand(),
           getAllProductsRequestState: RequestState.default_,
-          passToProductDetailsCommand: PassToProductDetailsCommand(),updateProductFavorityCommand: UpdateProductFavorityCommand(),
+          passToProductDetailsCommand: PassToProductDetailsCommand(),
+          updateProductFavorityCommand: UpdateProductFavorityCommand(),
         ) {
     if (getAllProductsRequestState == RequestState.default_) {
       getAllProductsCommand?.execute(this);

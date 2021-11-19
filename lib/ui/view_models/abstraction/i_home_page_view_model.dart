@@ -8,7 +8,7 @@ import 'base_view_model.dart';
 
 abstract class IHomePageViewModel extends BaseViewModel {
   IHomePageViewModel({
-    required UpdateUi updateUi,
+    UpdateUi updateUi,
     required this.products,
     required this.getAllProductsCommand,
     required this.getAllProductsRequestState,

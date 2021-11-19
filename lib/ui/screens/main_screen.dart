@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '/ui/view_models/concrency/home_page_view_model.dart';
 import '/ui/view_models/concrency/bottom_navigation_bar_view_model.dart';
 import '/ui/pages/bag_page.dart';
 import '/ui/pages/home_page.dart';
@@ -20,11 +21,21 @@ class MainScreen extends StatefulWidget {
 
 class _MainScreenState extends State<MainScreen> {
   late IMainScreenViewModel _mainScreenViewModel;
+  late List<Widget> _pages;
   @override
   void initState() {
     _mainScreenViewModel = MainScreenViewModel(
       updateUi: setState,
     );
+    _pages = [
+      HomePage(
+        homePageViewModel: HomePageViewModel(),
+      ),
+      const ShopPage(),
+      const BagPage(),
+      const LikedPage(),
+      const ProfilePage(),
+    ];
     StaticBuildContext.instance.context = context;
     super.initState();
   }
@@ -36,13 +47,7 @@ class _MainScreenState extends State<MainScreen> {
       body: PageView(
         controller: _mainScreenViewModel.pageController,
         onPageChanged: _mainScreenViewModel.onPageChanged,
-        children: const [
-          HomePage(),
-          ShopPage(),
-          BagPage(),
-          LikedPage(),
-          ProfilePage(),
-        ],
+        children: _pages,
       ),
       bottomNavigationBar: CBottomNavigationBar(
         bottomNavigationBarViewModel: BottomNavigationBarViewModel(
