@@ -14,7 +14,7 @@ class OnClickNavBarItemCommand extends IBaseCommand {
     if (viewModel is! MainScreenViewModel) return;
     viewModel.pageController.animateToPage(
       viewModel.clickedOnIndex!,
-      duration: const Duration(milliseconds: 250),
+      duration: const Duration(milliseconds: 500),
       curve: Curves.ease,
     );
     viewModel.updateUi!(() {
