@@ -12,13 +12,15 @@ abstract class IHomePageViewModel extends BaseViewModel {
     required this.products,
     required this.getAllProductsCommand,
     required this.getAllProductsRequestState,
+    required this.updateProductFavorityCommand,
     this.passToProductDetailsCommand,
   }) : super(updateUi: updateUi);
 
-  
   late List<ProductModel?>? products;
   late IBaseCommand? getAllProductsCommand;
   late IBaseCommand? passToProductDetailsCommand;
+  late IBaseCommand? updateProductFavorityCommand;
+  late dynamic idOfProductUserWantToSetFavorite;
   RequestState getAllProductsRequestState;
   ProductModel? get mostFamousProduct => products![0];
   List<CategoryModel?> _getCategories() {

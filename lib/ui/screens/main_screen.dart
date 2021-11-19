@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '/ui/view_models/concrency/bottom_navigation_bar_view_model.dart';
 import '/ui/pages/bag_page.dart';
 import '/ui/pages/home_page.dart';
 import '/ui/pages/liked_page.dart';
@@ -34,6 +35,7 @@ class _MainScreenState extends State<MainScreen> {
       backgroundColor: Theme.of(context).colorScheme.primary,
       body: PageView(
         controller: _mainScreenViewModel.pageController,
+        onPageChanged: _mainScreenViewModel.onPageChanged,
         children: const [
           HomePage(),
           ShopPage(),
@@ -43,7 +45,9 @@ class _MainScreenState extends State<MainScreen> {
         ],
       ),
       bottomNavigationBar: CBottomNavigationBar(
-        mainScreenViewModel: _mainScreenViewModel,
+        bottomNavigationBarViewModel: BottomNavigationBarViewModel(
+          mainScreenViewModel: _mainScreenViewModel,
+        ),
       ),
     );
   }

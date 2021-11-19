@@ -4,15 +4,15 @@ import 'category_dto.dart';
 import 'color_vs_attachment_dto.dart';
 
 class ProductDto extends BaseDto {
-  final String? title;
-  final String? description;
-  final double? price;
-  final double? saledPrice;
-  final int? raiting;
-  final VendorDto? vendor;
-  final int? ratedBy;
-  final List<CategoryDto?>? categories;
-  final List<ColorVsAttachmentDto?>? attachmentsWithColors;
+  String? title;
+  String? description;
+  double? price;
+  double? saledPrice;
+  int? raiting;
+  VendorDto? vendor;
+  int? ratedBy;
+  List<CategoryDto?>? categories;
+  List<ColorVsAttachmentDto?>? attachmentsWithColors;
   late bool favrotiedByUser;
   ProductDto.createNamed({
     required dynamic id,
@@ -27,4 +27,16 @@ class ProductDto extends BaseDto {
     this.saledPrice = 0,
     this.favrotiedByUser = false,
   }) : super(id: id);
+  static ProductDto copy(ProductDto old) {
+    return ProductDto.createNamed(
+      id: old.id,
+      title: old.title,
+      description: old.description,
+      price: old.price,
+      raiting: old.raiting,
+      vendor: old.vendor,
+      categories: old.categories,
+      attachmentsWithColors: old.attachmentsWithColors,
+    );
+  }
 }

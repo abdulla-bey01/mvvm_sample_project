@@ -6,11 +6,16 @@ class IMainScreenViewModel extends BaseViewModel {
   int navBarIndex;
   int? clickedOnIndex;
   PageController pageController;
-  IBaseCommand onClickNavBarItemCommand;
+  IBaseCommand changePageCommand;
   IMainScreenViewModel({
     required UpdateUi updateUi,
     required this.navBarIndex,
     required this.pageController,
-    required this.onClickNavBarItemCommand,
+    required this.changePageCommand,
   }) : super(updateUi: updateUi);
+  void onPageChanged(int index) {
+    updateUi!(() {
+      navBarIndex = index;
+    });
+  }
 }

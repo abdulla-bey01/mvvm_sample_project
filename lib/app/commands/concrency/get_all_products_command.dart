@@ -13,7 +13,7 @@ class GetAllProductsCommand extends IBaseCommand {
 
   @override
   void execute(BaseViewModel? viewModel) async {
-    if (viewModel is! HomePageModel) return;
+    if (viewModel is! HomePageViewModel) return;
     IProductsService _productService = ProductsService();
     try {
       final _products = await _productService.getAll();

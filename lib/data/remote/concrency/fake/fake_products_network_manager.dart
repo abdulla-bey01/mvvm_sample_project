@@ -78,7 +78,9 @@ class FakeProductsNetworkManager extends INetworkManager
       ],
     );
     for (var i = 0; i < 13; i++) {
-      _products.add(_product);
+      _product.id = i;
+      final _copiedProduct = ProductDto.copy(_product);
+      _products.add(_copiedProduct);
     }
     return _products;
   }

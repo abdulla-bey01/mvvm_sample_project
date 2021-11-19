@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import '/app/start/mvvm_app.dart';
 
-typedef UpdateUi = void Function(VoidCallback fn);
-typedef ShowSnackBar = void Function(String content);
+typedef UpdateUi = void Function(VoidCallback fn)?;
+typedef ShowSnackBar = void Function(String content)?;
 
 abstract class BaseViewModel {
   UpdateUi? updateUi;

@@ -1,4 +1,4 @@
 abstract class BaseDto {
-  final dynamic id;
+  late dynamic id;
   BaseDto({this.id});
 }

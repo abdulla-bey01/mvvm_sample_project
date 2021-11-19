@@ -1,60 +1,96 @@
 import 'package:flutter/material.dart';
-import '/data/models/product_model.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import '/app/helpers/extension-methods/bool_extension.dart';
 import '/ui/utils/styles.dart';
+import '/ui/view_models/abstraction/i_product_view_model.dart';
+import '/ui/widgets/price_and_saledprice_widget.dart';
+import '/ui/widgets/rating_widget.dart';
 
-class ProductWidget extends StatelessWidget {
-  const ProductWidget({Key? key, this.product, this.onClick}) : super(key: key);
-  final ProductModel? product;
-  final Function? onClick;
+import 'image_with_loading_widget.dart';
+
+class ProductWidget extends StatefulWidget {
+  const ProductWidget({Key? key, required this.productViewModel})
+      : super(key: key);
+  final IProductViewModel productViewModel;
+  @override
+  _ProductWidgetState createState() => _ProductWidgetState();
+}
+
+class _ProductWidgetState extends State<ProductWidget> {
+  @override
+  void initState() {
+    widget.productViewModel.updateUi = setState;
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
-    return ListTile(
-      onTap: () => onClick!(),
-      title: Text(product?.title ?? ''),
-      subtitle: Text(product?.description ?? ''),
-      trailing: SizedBox(
-        height: 100,
-        width: 100,
-        child: Image.network(
-          product?.attachmentsWithColors![0]?.attachment?.url ??
-              'default_place_holder_url_for_notloading_error',
-          fit: BoxFit.cover,
-          errorBuilder: (context, error, stackTrace) {
-            return Center(
-              child: Padding(
-                padding: const EdgeInsets.all(32.0),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    const Icon(
-                      Icons.wallpaper_rounded,
-                      size: 100,
-                      color: Colors.white,
+    final _product = widget.productViewModel.product;
+    return Padding(
+      padding: EdgeInsets.only(right: 14.0.w),
+      child: SizedBox(
+        height: 270.0.h,
+        width: 150.0.w,
+        child: Stack(
+          children: [
+            SizedBox(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  ImageWithLoadingWidget(product: _product),
+                  Padding(
+                    padding: EdgeInsets.only(top: 7.0.h),
+                    child: RatingWidget(product: _product),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(top: 6.0.h),
+                    child: Text(
+                      _product.vendor?.name ?? '',
+                      style: size11TextStyleGrey,
                     ),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 16.0),
-                      child: Text(
-                        'Sorry, image could not be showed',
-                        style: size16TextStyle,
-                      ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(top: 5.0.h),
+                    child: Text(
+                      _product.title ?? '',
+                      style: h2Style,
                     ),
-                  ],
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(top: 3.0.h),
+                    child: PriceAndSaledPriceWidget(
+                      product: _product,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            Positioned(
+              top: 164.0.h,
+              left: 113.0.w,
+              child: InkWell(
+                onTap: () =>
+                    widget.productViewModel.updateProductFavority(_product.id),
+                child: Container(
+                  width: 36.0.w,
+                  height: 36.0.h,
+                  decoration: const BoxDecoration(
+                    shape: BoxShape.circle,
+                    color: Color.fromRGBO(42, 44, 54, 1),
+                  ),
+                  child: Icon(
+                    _product.favrotiedByUser.isNullOrFalse
+                        ? Icons.favorite_border
+                        : Icons.favorite,
+                    size: 17.0.sp,
+                    color: _product.favrotiedByUser.isNullOrFalse
+                        ? Colors.grey
+                        : Theme.of(context).colorScheme.secondary,
+                  ),
                 ),
               ),
-            );
-          },
-          loadingBuilder: (context, child, loadingProgress) {
-            if (loadingProgress == null) return child;
-            return Center(
-              child: CircularProgressIndicator(
-                value: loadingProgress.expectedTotalBytes != null
-                    ? loadingProgress.cumulativeBytesLoaded /
-                        loadingProgress.expectedTotalBytes!
-                    : null,
-                valueColor: const AlwaysStoppedAnimation<Color>(Colors.red),
-              ),
-            );
-          },
+            ),
+          ],
         ),
       ),
     );

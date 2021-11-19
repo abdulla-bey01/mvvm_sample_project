@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import '/ui/view_models/concrency/category_and_products_widget_view_model.dart';
 import '/ui/widgets/category_and_products_widget.dart';
 import '/ui/widgets/famous_sell_product_widget.dart';
 import '/app/helpers/enums/request_state_enum.dart';
@@ -8,8 +9,6 @@ import '../view_models/concrency/home_page_view_model.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
-  static const route = '/main-screen';
-
   @override
   State<HomePage> createState() => _HomePageState();
 }
@@ -18,7 +17,7 @@ class _HomePageState extends State<HomePage> {
   late IHomePageViewModel _homePageViewModel;
   @override
   void initState() {
-    _homePageViewModel = HomePageModel(
+    _homePageViewModel = HomePageViewModel(
       updateUi: setState,
     );
     super.initState();
@@ -69,6 +68,11 @@ class _HomePageState extends State<HomePage> {
               child: CategoryAndProductsWidget(
                 category: e!,
                 products: _homePageViewModel.products!,
+                categoryAndProductsWidgetViewModel:
+                    CategoryAndProductsWidgetViewModel(
+                  updateUi: null,
+                  homePageViewModel: _homePageViewModel,
+                ),
               ),
             );
           }).toList(),
