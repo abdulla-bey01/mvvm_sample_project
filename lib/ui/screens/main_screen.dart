@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '/ui/view_models/concrency/shop_page_view_model.dart';
 import '/ui/view_models/concrency/home_page_view_model.dart';
 import '/ui/view_models/concrency/bottom_navigation_bar_view_model.dart';
 import '/ui/pages/bag_page.dart';
@@ -28,10 +29,8 @@ class _MainScreenState extends State<MainScreen> {
       updateUi: setState,
     );
     _pages = [
-      HomePage(
-        homePageViewModel: HomePageViewModel(),
-      ),
-      const ShopPage(),
+      HomePage(homePageViewModel: HomePageViewModel()),
+      ShopPage(shopPageViewModel: ShopPageViewModel()),
       const BagPage(),
       const LikedPage(),
       const ProfilePage(),

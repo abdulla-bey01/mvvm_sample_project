@@ -23,7 +23,8 @@ class LoginCommand extends IBaseCommand {
   }
 
   @override
-  void execute(BaseViewModel? viewModel) async {
+  void execute(BaseViewModel? viewModel,
+      {dynamic firstParameter, dynamic secondParameter}) async {
     if (viewModel is! LoginViewModel) {
       throw Exception('LoginViewModel must be sent to login command');
     }
@@ -31,7 +32,7 @@ class LoginCommand extends IBaseCommand {
       viewModel.showSnackBar('non-correct login model was sent');
       return;
     }
-    
+
     final _loginModel = viewModel.loginModel;
     _loginModel.id = const Uuid().v1().toString();
 

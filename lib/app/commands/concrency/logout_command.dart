@@ -12,7 +12,8 @@ class LogOutCommand extends IBaseCommand {
   }
 
   @override
-  void execute(BaseViewModel? viewModel) async {
+  void execute(BaseViewModel? viewModel,
+      {dynamic firstParameter, dynamic secondParameter}) async {
     final _localTokenService = LocalTokenService();
     final _token = await _localTokenService.get();
     if (!canExecute(_token)) {

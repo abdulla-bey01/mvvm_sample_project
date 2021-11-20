@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import '/ui/utils/styles.dart';
 import '/ui/view_models/abstraction/i_bottom_navigation_bar_view_model.dart';
 import 'bottom_nav_bar_item.dart';
 
@@ -20,48 +21,71 @@ class CBottomNavigationBar extends StatelessWidget {
       ),
       child: Padding(
         padding: EdgeInsets.symmetric(horizontal: 26.0.r),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        child: Column(
           children: [
-            CBottomNavBarItem(
-              icon: Icons.home_outlined,
-              text: 'Home',
-              selected: bottomNavigationBarViewModel
-                      .mainScreenViewModel.navBarIndex ==
-                  0,
-              onClick: () => bottomNavigationBarViewModel.onClickNavBarItem(0),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                CBottomNavBarItem(
+                  icon: Icons.home_outlined,
+                  text: 'Home',
+                  selected: bottomNavigationBarViewModel
+                          .mainScreenViewModel.navBarIndex ==
+                      0,
+                  onClick: () => bottomNavigationBarViewModel
+                      .mainScreenViewModel.changePageCommand
+                      .execute(bottomNavigationBarViewModel.mainScreenViewModel,
+                          firstParameter: 0),
+                ),
+                CBottomNavBarItem(
+                  icon: Icons.shopping_cart_outlined,
+                  text: 'Shop',
+                  selected: bottomNavigationBarViewModel
+                          .mainScreenViewModel.navBarIndex ==
+                      1,
+                  onClick: () => bottomNavigationBarViewModel
+                      .mainScreenViewModel.changePageCommand
+                      .execute(bottomNavigationBarViewModel.mainScreenViewModel,
+                          firstParameter: 1),
+                ),
+                CBottomNavBarItem(
+                  icon: Icons.shopping_bag_outlined,
+                  text: 'Bag',
+                  selected: bottomNavigationBarViewModel
+                          .mainScreenViewModel.navBarIndex ==
+                      2,
+                  onClick: () => bottomNavigationBarViewModel
+                      .mainScreenViewModel.changePageCommand
+                      .execute(bottomNavigationBarViewModel.mainScreenViewModel,
+                          firstParameter: 2),
+                ),
+                CBottomNavBarItem(
+                  icon: Icons.favorite_border,
+                  text: 'Liked',
+                  selected: bottomNavigationBarViewModel
+                          .mainScreenViewModel.navBarIndex ==
+                      3,
+                  onClick: () => bottomNavigationBarViewModel
+                      .mainScreenViewModel.changePageCommand
+                      .execute(bottomNavigationBarViewModel.mainScreenViewModel,
+                          firstParameter: 3),
+                ),
+                CBottomNavBarItem(
+                  icon: Icons.person,
+                  text: 'Profile',
+                  selected: bottomNavigationBarViewModel
+                          .mainScreenViewModel.navBarIndex ==
+                      4,
+                  onClick: () => bottomNavigationBarViewModel
+                      .mainScreenViewModel.changePageCommand
+                      .execute(bottomNavigationBarViewModel.mainScreenViewModel,
+                          firstParameter: 4),
+                ),
+              ],
             ),
-            CBottomNavBarItem(
-              icon: Icons.shopping_cart_outlined,
-              text: 'Shop',
-              selected: bottomNavigationBarViewModel
-                      .mainScreenViewModel.navBarIndex ==
-                  1,
-              onClick: () => bottomNavigationBarViewModel.onClickNavBarItem(1),
-            ),
-            CBottomNavBarItem(
-              icon: Icons.shopping_bag_outlined,
-              text: 'Bag',
-              selected: bottomNavigationBarViewModel
-                      .mainScreenViewModel.navBarIndex ==
-                  2,
-              onClick: () => bottomNavigationBarViewModel.onClickNavBarItem(2),
-            ),
-            CBottomNavBarItem(
-              icon: Icons.favorite_border,
-              text: 'Liked',
-              selected: bottomNavigationBarViewModel
-                      .mainScreenViewModel.navBarIndex ==
-                  3,
-              onClick: () => bottomNavigationBarViewModel.onClickNavBarItem(3),
-            ),
-            CBottomNavBarItem(
-              icon: Icons.person,
-              text: 'Profile',
-              selected: bottomNavigationBarViewModel
-                      .mainScreenViewModel.navBarIndex ==
-                  4,
-              onClick: () => bottomNavigationBarViewModel.onClickNavBarItem(4),
+            Text(
+              'developed by Saleh Abdullabayli',
+              style: unselectedNavBarItemTextStyle,
             ),
           ],
         ),

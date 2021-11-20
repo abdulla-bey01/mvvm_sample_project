@@ -37,7 +37,13 @@ class _ProductWidgetState extends State<ProductWidget> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  ImageWithLoadingWidget(product: _product),
+                  ImageWithLoadingWidget(
+                    url: _product.attachmentsWithColors![0]!.attachment!.url ??
+                        '',
+                    borderRadius: BorderRadius.circular(
+                      8.0.r,
+                    ),
+                  ),
                   Padding(
                     padding: EdgeInsets.only(top: 7.0.h),
                     child: RatingWidget(product: _product),
@@ -69,8 +75,11 @@ class _ProductWidgetState extends State<ProductWidget> {
               top: 164.0.h,
               left: 113.0.w,
               child: InkWell(
-                onTap: () =>
-                    widget.productViewModel.updateProductFavority(_product.id),
+                onTap: () => widget.productViewModel.homePageViewModel
+                    .updateProductFavorityCommand
+                    ?.execute(widget.productViewModel.homePageViewModel,
+                        firstParameter: _product.id),
+                //widget.productViewModel.updateProductFavority(_product.id),
                 child: Container(
                   width: 36.0.w,
                   height: 36.0.h,

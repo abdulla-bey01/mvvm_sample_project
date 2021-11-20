@@ -11,10 +11,7 @@ class IProductViewModel extends BaseViewModel {
   late ProductModel product;
   late IHomePageViewModel homePageViewModel;
   void updateProductFavority(dynamic id) {
-    updateUi!(() {
-      homePageViewModel.idOfProductUserWantToSetFavorite = id;
-      homePageViewModel.updateProductFavorityCommand
-          ?.execute(homePageViewModel);
-    });
+    homePageViewModel.updateProductFavorityCommand
+        ?.execute(homePageViewModel, firstParameter: id);
   }
 }

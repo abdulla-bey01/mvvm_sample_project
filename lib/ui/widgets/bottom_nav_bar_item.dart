@@ -17,7 +17,7 @@ class CBottomNavBarItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(top: 8.0.h, bottom: 33.0.h),
+      padding: EdgeInsets.only(top: 8.0.h, bottom: 13.0.h),
       child: SizedBox(
         height: 42.0.h,
         width: 38.0..w,

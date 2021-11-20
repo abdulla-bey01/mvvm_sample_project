@@ -12,7 +12,8 @@ class PassToMainScreenCommand extends IBaseCommand {
   }
 
   @override
-  void execute(BaseViewModel? viewModel) {
+  void execute(BaseViewModel? viewModel,
+      {dynamic firstParameter, dynamic secondParameter}) {
     navigatorKey.currentState?.pushReplacement(
       MaterialPageRoute(
         builder: (context) => const MainScreen(),

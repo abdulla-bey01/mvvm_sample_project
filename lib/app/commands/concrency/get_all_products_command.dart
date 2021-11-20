@@ -12,7 +12,8 @@ class GetAllProductsCommand extends IBaseCommand {
   }
 
   @override
-  void execute(BaseViewModel? viewModel) async {
+  void execute(BaseViewModel? viewModel,
+      {dynamic firstParameter, dynamic secondParameter}) async {
     if (viewModel is! HomePageViewModel) return;
     IProductsService _productService = ProductsService();
     try {

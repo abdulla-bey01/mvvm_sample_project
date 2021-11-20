@@ -15,9 +15,5 @@ class HomePageViewModel extends IHomePageViewModel {
           getAllProductsRequestState: RequestState.default_,
           passToProductDetailsCommand: PassToProductDetailsCommand(),
           updateProductFavorityCommand: UpdateProductFavorityCommand(),
-        ) {
-    if (getAllProductsRequestState == RequestState.default_) {
-      getAllProductsCommand?.execute(this);
-    }
-  }
+        );
 }

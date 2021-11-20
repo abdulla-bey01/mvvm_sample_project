@@ -9,6 +9,8 @@ class CategoryMigrator extends Migrator<CategoryModel, CategoryDto> {
       id: model?.id,
       title: model?.title,
       slogan: model?.slogan,
+      chidren: model?.chidren?.map((e) => migrateToDto(e)!).toList(),
+      salePercent: model!.salePercent,
     );
   }
 
@@ -18,6 +20,8 @@ class CategoryMigrator extends Migrator<CategoryModel, CategoryDto> {
       id: dto?.id,
       title: dto?.title,
       slogan: dto?.slogan,
+      chidren: dto?.chidren?.map((e) => migrateToModel(e)!).toList(),
+      salePercent: dto!.salePercent,
     );
   }
 }

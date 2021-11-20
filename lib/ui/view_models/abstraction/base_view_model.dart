@@ -13,6 +13,16 @@ abstract class BaseViewModel {
     scaffoldMessengerKey.currentState?.showSnackBar(snackBar);
   }
 
+  void showBlurryDialog(Widget child) {
+    showDialog(
+      context: navigatorKey.currentContext!,
+      barrierDismissible: true,
+      builder: (context) => Center(
+        child: child,
+      ),
+    );
+  }
+
   BaseViewModel({
     this.updateUi,
   });

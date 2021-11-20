@@ -5,8 +5,4 @@ class IBottomNavigationBarViewModel extends BaseViewModel {
   IBottomNavigationBarViewModel({required this.mainScreenViewModel})
       : super();
   final IMainScreenViewModel mainScreenViewModel;
-  void onClickNavBarItem(int index) {
-    mainScreenViewModel.clickedOnIndex = index;
-    mainScreenViewModel.changePageCommand.execute(mainScreenViewModel);
-  }
 }

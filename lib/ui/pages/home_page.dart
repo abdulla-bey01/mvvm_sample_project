@@ -19,6 +19,12 @@ class _HomePageState extends State<HomePage> {
   void initState() {
     _homePageViewModel = widget.homePageViewModel;
     _homePageViewModel.updateUi = setState;
+
+    if (_homePageViewModel.getAllProductsRequestState ==
+        RequestState.default_) {
+      _homePageViewModel.getAllProductsCommand?.execute(_homePageViewModel);
+    }
+
     super.initState();
   }
 

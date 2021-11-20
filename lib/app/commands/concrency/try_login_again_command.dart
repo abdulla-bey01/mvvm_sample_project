@@ -11,7 +11,8 @@ class TryLoginAgainCommand extends IBaseCommand {
   }
 
   @override
-  void execute(BaseViewModel? viewModel) {
+  void execute(BaseViewModel? viewModel,
+      {dynamic firstParameter, dynamic secondParameter}) {
     navigatorKey.currentState?.pushReplacementNamed(LoginScreen.route);
   }
 }

@@ -27,6 +27,13 @@ TextStyle headingStyle =  TextStyle(
   fontWeight: FontWeight.bold,
 );
 
+TextStyle headline3Style =  TextStyle(
+  //  fontFamily: _textStyleName,
+  color: Colors.white,
+  fontSize: 22.0.sp,
+  fontWeight: FontWeight.bold,
+);
+
 //used in login screen to style 'have not you been here' text
 TextStyle normalTextStyle = TextStyle(
   //  fontFamily: _textStyleName,
@@ -210,11 +217,19 @@ TextStyle size10TextStyleGrey = TextStyle(
 // );
 
 //used in product widget placing on home page to style product title
-TextStyle size16TextStyle = const TextStyle(
+TextStyle size16TextStyle = TextStyle(
   //  //  fontFamily: _textStyleName,
   color: Colors.white,
-  fontSize: 16.0,
-  fontWeight: FontWeight.normal,
+  fontSize: 16.0.sp,
+  fontWeight: FontWeight.w400,
+  letterSpacing: 0.2,
+);
+
+TextStyle size24TextStyle = TextStyle(
+  //  //  fontFamily: _textStyleName,
+  color: Colors.white,
+  fontSize: 24.0.sp,
+  fontWeight: FontWeight.w600,
   letterSpacing: 0.2,
 );
 

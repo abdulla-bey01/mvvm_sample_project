@@ -15,7 +15,7 @@ class FakeProductsNetworkManager extends INetworkManager
 
   @override
   Future<List<ProductDto>> getAll() async {
-    await Future.delayed(const Duration(milliseconds: 500));
+    await Future.delayed(const Duration(milliseconds: 200));
     List<ProductDto> _products = [];
     ProductDto _product = ProductDto.createNamed(
       id: 1,
@@ -29,15 +29,18 @@ class FakeProductsNetworkManager extends INetworkManager
           id: 1,
           title: 'Sale',
           slogan: 'Super summer sale',
+          salePercent: 0,
         ),
         CategoryDto.createNamed(
           id: 2,
           title: 'New',
           slogan: 'You’ve never seen it before!',
+          salePercent: 0,
         ),
         CategoryDto.createNamed(
           id: 3,
           title: 'Smartphones',
+          salePercent: 0,
           slogan: 'Smarter than you',
         ),
       ],
@@ -98,16 +101,19 @@ class FakeProductsNetworkManager extends INetworkManager
         CategoryDto.createNamed(
           id: 1,
           title: 'Sale',
+          salePercent: 0,
           slogan: 'Super summer sale',
         ),
         CategoryDto.createNamed(
           id: 2,
           title: 'New',
+          salePercent: 0,
           slogan: 'You’ve never seen it before!',
         ),
         CategoryDto.createNamed(
           id: 3,
           title: 'Smartphones',
+          salePercent: 0,
           slogan: 'Smarter than you',
         ),
       ],

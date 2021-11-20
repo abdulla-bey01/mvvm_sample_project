@@ -10,11 +10,14 @@ class UpdateProductFavorityCommand extends IBaseCommand {
   }
 
   @override
-  void execute(BaseViewModel? viewModel) {
+  void execute(BaseViewModel? viewModel,
+      {dynamic firstParameter, dynamic secondParameter}) {
     if (viewModel is! HomePageViewModel) return;
     if (!canExecute(null)) return;
-    var _product = viewModel.products?.firstWhere(
-        (element) => element?.id == viewModel.idOfProductUserWantToSetFavorite);
-    _product?.favrotiedByUser = !_product.favrotiedByUser;
+    var _product = viewModel.products
+        ?.firstWhere((element) => element?.id == firstParameter);
+    viewModel.updateUi!(() {
+      _product?.favrotiedByUser = !_product.favrotiedByUser;
+    });
   }
 }

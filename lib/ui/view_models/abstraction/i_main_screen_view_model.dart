@@ -4,7 +4,6 @@ import 'base_view_model.dart';
 
 class IMainScreenViewModel extends BaseViewModel {
   int navBarIndex;
-  int? clickedOnIndex;
   PageController pageController;
   IBaseCommand changePageCommand;
   IMainScreenViewModel({

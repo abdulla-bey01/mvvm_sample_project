@@ -20,7 +20,6 @@ abstract class IHomePageViewModel extends BaseViewModel {
   late IBaseCommand? getAllProductsCommand;
   late IBaseCommand? passToProductDetailsCommand;
   late IBaseCommand? updateProductFavorityCommand;
-  late dynamic idOfProductUserWantToSetFavorite;
   RequestState getAllProductsRequestState;
   ProductModel? get mostFamousProduct => products![0];
   List<CategoryModel?> _getCategories() {

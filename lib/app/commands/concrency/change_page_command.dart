@@ -10,15 +10,16 @@ class ChangePageCommand extends IBaseCommand {
   }
 
   @override
-  void execute(BaseViewModel? viewModel) {
+  void execute(BaseViewModel? viewModel,
+      {dynamic firstParameter, dynamic secondParameter}) {
     if (viewModel is! MainScreenViewModel) return;
     viewModel.pageController.animateToPage(
-      viewModel.clickedOnIndex!,
+      firstParameter!,
       duration: const Duration(milliseconds: 500),
       curve: Curves.ease,
     );
     viewModel.updateUi!(() {
-      viewModel.navBarIndex = viewModel.clickedOnIndex!;
+      viewModel.navBarIndex = firstParameter!;
     });
   }
 }
