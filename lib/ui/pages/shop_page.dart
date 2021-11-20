@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '/app/helpers/enums/request_state_enum.dart';
 import '/ui/view_models/abstraction/i_shop_page_view_model.dart';
 import '../widgets/categories_widget.dart';
@@ -37,6 +38,15 @@ class _ShopPageState extends State<ShopPage> {
             style: headline3Style,
           ),
           elevation: 0,
+          actions: [
+            Padding(
+              padding: EdgeInsets.only(right: 11.0.w),
+              child: const Icon(
+                Icons.search,
+                size: 24.0,
+              ),
+            ),
+          ],
         ),
         body: (_shopPageViewModel
                         .categoriesViewModel.getAllCategoriesRequestState ==
