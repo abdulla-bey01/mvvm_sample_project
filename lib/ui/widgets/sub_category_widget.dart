@@ -13,6 +13,7 @@ class SubCategoryWidget extends StatelessWidget {
         super(key: key);
 
   final CategoryModel? _subCategoty;
+  
 
   @override
   Widget build(BuildContext context) {
@@ -52,8 +53,7 @@ class SubCategoryWidget extends StatelessWidget {
               height: 100.0.h,
               width: (343.0 / 2).w,
               child: ImageWithLoadingWidget(
-                url:
-                    'https://unsplash.com/photos/KXIWqtmvfxg/download?ixid=MnwxMjA3fDF8MXxhbGx8MTZ8fHx8fHwyfHwxNjM3NDM0ODI1&force=true',
+                url: _subCategoty!.imageUrl!,
                 borderRadius: BorderRadius.only(
                   bottomRight: Radius.circular(8.0.r),
                   topRight: Radius.circular(8.0.r),

@@ -70,6 +70,7 @@ class _ShopPageState extends State<ShopPage> {
 
   Widget _buildBody() {
     return CategoriesWidget(
-        categoriesViewModel: _shopPageViewModel.categoriesViewModel);
+      categoriesViewModel: _shopPageViewModel.categoriesViewModel,
+    );
   }
 }

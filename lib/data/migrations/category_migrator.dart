@@ -11,6 +11,7 @@ class CategoryMigrator extends Migrator<CategoryModel, CategoryDto> {
       slogan: model?.slogan,
       chidren: model?.chidren?.map((e) => migrateToDto(e)!).toList(),
       salePercent: model!.salePercent,
+      imageUrl: model.imageUrl,
     );
   }
 
@@ -22,6 +23,7 @@ class CategoryMigrator extends Migrator<CategoryModel, CategoryDto> {
       slogan: dto?.slogan,
       chidren: dto?.chidren?.map((e) => migrateToModel(e)!).toList(),
       salePercent: dto!.salePercent,
+      imageUrl: dto.imageUrl,
     );
   }
 }
