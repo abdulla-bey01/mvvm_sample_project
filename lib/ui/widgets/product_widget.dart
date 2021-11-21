@@ -71,6 +71,19 @@ class _ProductWidgetState extends State<ProductWidget> {
                 ],
               ),
             ),
+            _product.salePercent != null && _product.salePercent! > 0.0
+                ? Positioned(
+                    top: 8.0.h,
+                    left: 9.0.w,
+                    child: Chip(
+                      backgroundColor: const Color.fromRGBO(255, 62, 62, 1),
+                      label: Text(
+                        '${_product.salePercent}%',
+                        style: size11TextStyleWhite,
+                      ),
+                    ),
+                  )
+                : const SizedBox(),
             Positioned(
               top: 164.0.h,
               left: 113.0.w,

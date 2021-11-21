@@ -21,9 +21,10 @@ class FakeProductsNetworkManager extends INetworkManager
       id: 1,
       title: 'Iphone 12 pro max',
       description: 'iphone 12 pro max description',
-      price: 3900.0,
+      price: 1000.0,
       raiting: 5,
       ratedBy: 13,
+      salePercent: 19.9,
       categories: [
         CategoryDto.createNamed(
           id: 1,
@@ -82,6 +83,7 @@ class FakeProductsNetworkManager extends INetworkManager
     );
     for (var i = 0; i < 13; i++) {
       _product.id = i;
+      if (i < 6) _product.salePercent = i * 10;
       final _copiedProduct = ProductDto.copy(_product);
       _products.add(_copiedProduct);
     }
@@ -96,6 +98,7 @@ class FakeProductsNetworkManager extends INetworkManager
       description: 'iphone 12 pro max description',
       price: 3900.0,
       raiting: 5,
+      salePercent: 40,
       ratedBy: 15,
       categories: [
         CategoryDto.createNamed(

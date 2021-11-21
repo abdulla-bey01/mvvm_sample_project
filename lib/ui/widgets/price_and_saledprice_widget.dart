@@ -18,7 +18,7 @@ class PriceAndSaledPriceWidget extends StatelessWidget {
           '${product?.price?.toString()}\$',
           style: priceStyle,
         ),
-        (product!.saledPrice! > 0.0)
+        (product?.saledPrice != null)
             ? Padding(
                 padding: EdgeInsets.only(left: 4.0.w),
                 child: Text(

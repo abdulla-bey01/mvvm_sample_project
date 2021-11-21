@@ -7,13 +7,16 @@ class ProductModel extends BaseModel {
   final String? title;
   final String? description;
   final double? price;
-  final double? saledPrice;
+  final double? salePercent;
   final int? raiting;
   final VendorModel? vendor;
   final List<CategoryModel?>? categories;
   final List<ColorVsAttachmentModel?>? attachmentsWithColors;
   final int? ratedBy;
   late bool favrotiedByUser;
+  double? get saledPrice => (salePercent == null || salePercent == 0)
+      ? null
+      : price! - ((price! * salePercent!) / 100);
 
   ProductModel.createNamed({
     required dynamic id,
@@ -25,7 +28,7 @@ class ProductModel extends BaseModel {
     required this.categories,
     required this.attachmentsWithColors,
     this.ratedBy = 0,
-    this.saledPrice = 0,
+    this.salePercent = 0,
     this.favrotiedByUser = false,
   }) : super(id: id);
 }
