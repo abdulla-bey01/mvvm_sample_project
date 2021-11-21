@@ -10,8 +10,10 @@ class ColorVsAttachmentMigrator
   ColorVsAttachmentDto? migrateToDto(ColorVsAttachmentModel? model) {
     return ColorVsAttachmentDto.createNamed(
       id: model?.id,
-      attachment: AttachmentMigrator().migrateToDto(model?.attachment),
       color: RgbColorMigrator().migrateToDto(model?.color),
+      attachments: model!.attachments
+          .map((e) => AttachmentMigrator().migrateToDto(e))
+          .toList(),
     );
   }
 
@@ -19,8 +21,10 @@ class ColorVsAttachmentMigrator
   ColorVsAttachmentModel? migrateToModel(ColorVsAttachmentDto? dto) {
     return ColorVsAttachmentModel.createNamed(
       id: dto?.id,
-      attachment: AttachmentMigrator().migrateToModel(dto?.attachment),
       color: RgbColorMigrator().migrateToModel(dto?.color),
+      attachments: dto!.attachments
+          .map((e) => AttachmentMigrator().migrateToModel(e))
+          .toList(),
     );
   }
 }

@@ -4,11 +4,12 @@ import 'rgb_color_dto.dart';
 
 class ColorVsAttachmentDto extends BaseDto {
   final RgbColorDto? color;
-  final AttachmentDto? attachment;
+    final List<AttachmentDto> attachments;
+
 
   ColorVsAttachmentDto.createNamed({
     required dynamic id,
     required this.color,
-    required this.attachment,
+    required this.attachments,
   }) : super(id: id);
 }

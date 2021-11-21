@@ -61,7 +61,7 @@ TextStyle h3Style = const TextStyle(
 TextStyle h2StyleWithOpacity0_5 = TextStyle(
   //  fontFamily: _textStyleName,
   color: Colors.white.withOpacity(0.5),
-  fontSize: 20,
+  fontSize: 14.0.sp,
   fontWeight: FontWeight.w400,
 );
 

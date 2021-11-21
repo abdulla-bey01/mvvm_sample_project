@@ -22,7 +22,7 @@ class PriceAndSaledPriceWidget extends StatelessWidget {
             ? Padding(
                 padding: EdgeInsets.only(left: 4.0.w),
                 child: Text(
-                  '${product?.saledPrice.toString()}\$',
+                  '${product?.saledPrice?.toStringAsFixed(1)}\$',
                   style: discountedPriceStyle,
                 ),
               )

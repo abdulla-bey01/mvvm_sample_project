@@ -1,6 +1,7 @@
+import '/data/remote/concrency/fake/fake_bag_network_manager.dart';
+import '/data/remote/abstraction/i_bag_network_manager.dart';
 import '/data/remote/abstraction/i_categories_network_manager.dart';
 import '/data/remote/concrency/fake/fake_categories_network_manager.dart';
-
 import '/data/remote/abstraction/i_products_network_manager.dart';
 import '/data/remote/concrency/fake/fake_products_network_manager.dart';
 import '/app/auth/concrency/reqres/reqres_auth_network_manager.dart';
@@ -13,6 +14,7 @@ class AppDiContainer {
   late IAuthNetworkManager authNetworkManager;
   late IProductsNetworkManager productsNetworkManager;
   late ICategoriesNetworkManager categoriessNetworkManager;
+  late IBagNetworkManager bagNetworkManager;
 
   static AppDiContainer get instance => _instance ??= AppDiContainer._();
   static AppDiContainer? _instance;
@@ -24,5 +26,6 @@ class AppDiContainer {
     authNetworkManager = ReqResAuthNetworkManager();
     productsNetworkManager = FakeProductsNetworkManager();
     categoriessNetworkManager = FakeCategoriesNetworkManager();
+    bagNetworkManager = FakeBagNetworkManager();
   }
 }

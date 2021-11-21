@@ -10,6 +10,7 @@ class RgbColorMigrator extends Migrator<RgbColorModel, RgbColorDto> {
       model?.red,
       model?.blue,
       model?.green,
+      model?.name,
     );
   }
 
@@ -19,6 +20,7 @@ class RgbColorMigrator extends Migrator<RgbColorModel, RgbColorDto> {
       dto?.red,
       dto?.blue,
       dto?.green,
+      dto?.name
     );
   }
 }

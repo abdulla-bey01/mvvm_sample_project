@@ -1,7 +1,11 @@
+import '/app/network/abstraction/i_network_manager.dart';
 import '/data/dtos/category_dto.dart';
 import '/data/remote/abstraction/i_categories_network_manager.dart';
 
-class FakeCategoriesNetworkManager extends ICategoriesNetworkManager {
+class FakeCategoriesNetworkManager extends INetworkManager
+    implements ICategoriesNetworkManager {
+  FakeCategoriesNetworkManager() : super(baseUrl: 'my-ecommerce.com');
+
   @override
   Future<List<CategoryDto>> getAll() async {
     await Future.delayed(const Duration(milliseconds: 500));

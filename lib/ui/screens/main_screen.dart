@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '/ui/view_models/concrency/bag_page_view_model.dart';
 import '/ui/widgets/fade_indexed_stack.dart';
 import '/ui/view_models/concrency/shop_page_view_model.dart';
 import '/ui/view_models/concrency/home_page_view_model.dart';
@@ -32,7 +33,7 @@ class _MainScreenState extends State<MainScreen> {
     _pages = [
       HomePage(homePageViewModel: HomePageViewModel()),
       ShopPage(shopPageViewModel: ShopPageViewModel()),
-      const BagPage(),
+      BagPage(bagPageViewModel: BagPageViewModel(),),
       const LikedPage(),
       const ProfilePage(),
     ];

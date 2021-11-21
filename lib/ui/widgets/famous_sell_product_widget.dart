@@ -23,7 +23,8 @@ class FamousSellProductWidget extends StatelessWidget {
           height: height,
           width: width,
           child: CachedNetworkImage(
-            imageUrl: product.attachmentsWithColors![0]?.attachment?.url ?? '',
+            imageUrl:
+                product.attachmentsWithColors![0]?.attachments[0].url ?? '',
             fit: BoxFit.cover,
             fadeInDuration: const Duration(milliseconds: 100),
             fadeOutDuration: const Duration(milliseconds: 100),

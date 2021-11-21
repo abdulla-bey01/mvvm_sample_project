@@ -4,7 +4,7 @@ import 'migrator.dart';
 
 class AttachmentMigrator extends Migrator<AttachmentModel, AttachmentDto> {
   @override
-  AttachmentDto? migrateToDto(AttachmentModel? model) {
+  AttachmentDto migrateToDto(AttachmentModel? model) {
     return AttachmentDto.createNamed(
       id: model?.id,
       url: model?.url,
@@ -13,7 +13,7 @@ class AttachmentMigrator extends Migrator<AttachmentModel, AttachmentDto> {
   }
 
   @override
-  AttachmentModel? migrateToModel(AttachmentDto? dto) {
+  AttachmentModel migrateToModel(AttachmentDto? dto) {
     return AttachmentModel.createNamed(
       id: dto?.id,
       url: dto?.url,

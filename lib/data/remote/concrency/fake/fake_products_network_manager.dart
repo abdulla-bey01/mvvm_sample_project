@@ -6,7 +6,6 @@ import '/data/dtos/color_vs_attachment_dto.dart';
 import '/data/dtos/product_dto.dart';
 import '/data/dtos/rgb_color_dto.dart';
 import '/data/dtos/vendor_dto.dart';
-
 import '../../abstraction/i_products_network_manager.dart';
 
 class FakeProductsNetworkManager extends INetworkManager
@@ -51,39 +50,44 @@ class FakeProductsNetworkManager extends INetworkManager
       ),
       attachmentsWithColors: [
         ColorVsAttachmentDto.createNamed(
-          id: 1,
-          color: RgbColorDto.createNamed(255, 255, 255),
-          attachment: AttachmentDto.createNamed(
             id: 1,
-            url: 'https://unsplash.com/photos/tze1kKj7Lgg/download?force=true',
-            type: AttachmentType.jpg,
-          ),
+            color: RgbColorDto.createNamed(255, 255, 255, 'white'),
+            attachments: [
+              AttachmentDto.createNamed(
+                id: 1,
+                url:
+                    'https://unsplash.com/photos/tze1kKj7Lgg/download?force=true',
+                type: AttachmentType.jpg,
+              ),
+            ]),
+        ColorVsAttachmentDto.createNamed(
+          id: 1,
+          color: RgbColorDto.createNamed(188, 34, 142, 'Red'),
+          attachments: [
+            AttachmentDto.createNamed(
+              id: 1,
+              url:
+                  'https://unsplash.com/photos/Gx34eWExGD8/download?ixid=MnwxMjA3fDB8MXxzZWFyY2h8MTJ8fGlwaG9uZTEyJTIwcHJvJTIwbWF4fHwwfHx8fDE2MzcxNjk3NTY&force=true',
+              type: AttachmentType.jpg,
+            ),
+          ],
         ),
         ColorVsAttachmentDto.createNamed(
           id: 1,
-          color: RgbColorDto.createNamed(188, 34, 142),
-          attachment: AttachmentDto.createNamed(
-            id: 1,
-            url:
-                'https://unsplash.com/photos/Gx34eWExGD8/download?ixid=MnwxMjA3fDB8MXxzZWFyY2h8MTJ8fGlwaG9uZTEyJTIwcHJvJTIwbWF4fHwwfHx8fDE2MzcxNjk3NTY&force=true',
-            type: AttachmentType.jpg,
-          ),
-        ),
-        ColorVsAttachmentDto.createNamed(
-          id: 1,
-          color: RgbColorDto.createNamed(12, 128, 211),
-          attachment: AttachmentDto.createNamed(
-            id: 1,
-            url:
-                'https://unsplash.com/photos/Gx34eWExGD8/download?ixid=MnwxMjA3fDB8MXxzZWFyY2h8MTJ8fGlwaG9uZTEyJTIwcHJvJTIwbWF4fHwwfHx8fDE2MzcxNjk3NTY&force=true',
-            type: AttachmentType.jpg,
-          ),
+          color: RgbColorDto.createNamed(12, 128, 211, 'red'),
+          attachments: [
+            AttachmentDto.createNamed(
+              id: 1,
+              url:
+                  'https://unsplash.com/photos/Gx34eWExGD8/download?ixid=MnwxMjA3fDB8MXxzZWFyY2h8MTJ8fGlwaG9uZTEyJTIwcHJvJTIwbWF4fHwwfHx8fDE2MzcxNjk3NTY&force=true',
+              type: AttachmentType.jpg,
+            ),
+          ],
         ),
       ],
     );
     for (var i = 0; i < 13; i++) {
       _product.id = i;
-      if (i < 6) _product.salePercent = i * 10;
       final _copiedProduct = ProductDto.copy(_product);
       _products.add(_copiedProduct);
     }
@@ -127,33 +131,39 @@ class FakeProductsNetworkManager extends INetworkManager
       attachmentsWithColors: [
         ColorVsAttachmentDto.createNamed(
           id: 1,
-          color: RgbColorDto.createNamed(255, 255, 255),
-          attachment: AttachmentDto.createNamed(
-            id: 1,
-            url:
-                'https://unsplash.com/photos/Gx34eWExGD8/download?ixid=MnwxMjA3fDB8MXxzZWFyY2h8MTJ8fGlwaG9uZTEyJTIwcHJvJTIwbWF4fHwwfHx8fDE2MzcxNjk3NTY&force=true',
-            type: AttachmentType.jpg,
-          ),
+          color: RgbColorDto.createNamed(255, 255, 255, 'white'),
+          attachments: [
+            AttachmentDto.createNamed(
+              id: 1,
+              url:
+                  'https://unsplash.com/photos/Gx34eWExGD8/download?ixid=MnwxMjA3fDB8MXxzZWFyY2h8MTJ8fGlwaG9uZTEyJTIwcHJvJTIwbWF4fHwwfHx8fDE2MzcxNjk3NTY&force=true',
+              type: AttachmentType.jpg,
+            ),
+          ],
         ),
         ColorVsAttachmentDto.createNamed(
           id: 1,
-          color: RgbColorDto.createNamed(188, 34, 142),
-          attachment: AttachmentDto.createNamed(
-            id: 1,
-            url:
-                'https://unsplash.com/photos/Gx34eWExGD8/download?ixid=MnwxMjA3fDB8MXxzZWFyY2h8MTJ8fGlwaG9uZTEyJTIwcHJvJTIwbWF4fHwwfHx8fDE2MzcxNjk3NTY&force=true',
-            type: AttachmentType.jpg,
-          ),
+          color: RgbColorDto.createNamed(188, 34, 142, 'white'),
+          attachments: [
+            AttachmentDto.createNamed(
+              id: 1,
+              url:
+                  'https://unsplash.com/photos/Gx34eWExGD8/download?ixid=MnwxMjA3fDB8MXxzZWFyY2h8MTJ8fGlwaG9uZTEyJTIwcHJvJTIwbWF4fHwwfHx8fDE2MzcxNjk3NTY&force=true',
+              type: AttachmentType.jpg,
+            ),
+          ],
         ),
         ColorVsAttachmentDto.createNamed(
           id: 1,
-          color: RgbColorDto.createNamed(12, 128, 211),
-          attachment: AttachmentDto.createNamed(
-            id: 1,
-            url:
-                'https://unsplash.com/photos/Gx34eWExGD8/download?ixid=MnwxMjA3fDB8MXxzZWFyY2h8MTJ8fGlwaG9uZTEyJTIwcHJvJTIwbWF4fHwwfHx8fDE2MzcxNjk3NTY&force=true',
-            type: AttachmentType.jpg,
-          ),
+          color: RgbColorDto.createNamed(12, 128, 211, 'white'),
+          attachments: [
+            AttachmentDto.createNamed(
+              id: 1,
+              url:
+                  'https://unsplash.com/photos/Gx34eWExGD8/download?ixid=MnwxMjA3fDB8MXxzZWFyY2h8MTJ8fGlwaG9uZTEyJTIwcHJvJTIwbWF4fHwwfHx8fDE2MzcxNjk3NTY&force=true',
+              type: AttachmentType.jpg,
+            ),
+          ],
         ),
       ],
     );

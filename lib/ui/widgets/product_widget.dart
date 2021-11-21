@@ -38,7 +38,8 @@ class _ProductWidgetState extends State<ProductWidget> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   ImageWithLoadingWidget(
-                    url: _product.attachmentsWithColors![0]!.attachment!.url ??
+                    url: _product
+                            .attachmentsWithColors![0]!.attachments[0].url ??
                         '',
                     borderRadius: BorderRadius.circular(
                       8.0.r,
