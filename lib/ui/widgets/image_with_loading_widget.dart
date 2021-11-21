@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '/ui/utils/styles.dart';
@@ -18,10 +19,20 @@ class ImageWithLoadingWidget extends StatelessWidget {
       width: 148.0.w,
       child: ClipRRect(
         borderRadius: borderRadius,
-        child: Image.network(
-          url,
+        child: CachedNetworkImage(
+          imageUrl: url,
           fit: BoxFit.cover,
-          errorBuilder: (context, error, stackTrace) {
+          fadeInDuration: const Duration(milliseconds: 100),
+          fadeOutDuration: const Duration(milliseconds: 100),
+          progressIndicatorBuilder: (context, url, downloadProgress) {
+            return Center(
+              child: CircularProgressIndicator(
+                value: downloadProgress.progress,
+                valueColor: const AlwaysStoppedAnimation<Color>(Colors.red),
+              ),
+            );
+          },
+          errorWidget: (context, url, error) {
             return Center(
               child: Padding(
                 padding: const EdgeInsets.all(32.0),
@@ -42,18 +53,6 @@ class ImageWithLoadingWidget extends StatelessWidget {
                     ),
                   ],
                 ),
-              ),
-            );
-          },
-          loadingBuilder: (context, child, loadingProgress) {
-            if (loadingProgress == null) return child;
-            return Center(
-              child: CircularProgressIndicator(
-                value: loadingProgress.expectedTotalBytes != null
-                    ? loadingProgress.cumulativeBytesLoaded /
-                        loadingProgress.expectedTotalBytes!
-                    : null,
-                valueColor: const AlwaysStoppedAnimation<Color>(Colors.red),
               ),
             );
           },

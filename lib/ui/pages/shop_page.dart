@@ -30,6 +30,7 @@ class _ShopPageState extends State<ShopPage> {
 
   @override
   Widget build(BuildContext context) {
+    debugPrint('build in shop_page');
     return Scaffold(
         backgroundColor: Theme.of(context).colorScheme.primary,
         appBar: AppBar(

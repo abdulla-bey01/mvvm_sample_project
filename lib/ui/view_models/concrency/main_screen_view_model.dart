@@ -8,7 +8,7 @@ class MainScreenViewModel extends IMainScreenViewModel {
     required UpdateUi updateUi,
   }) : super(
           navBarIndex: 0,
-          pageController: PageController(),
+          pageController: PageController(keepPage: true,),
           changePageCommand: ChangePageCommand(),
           updateUi: updateUi,
         );

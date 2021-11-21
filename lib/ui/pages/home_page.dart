@@ -30,6 +30,7 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    debugPrint('build in home_page');
     return Container(
       color: Theme.of(context).colorScheme.primary,
       child: (_homePageViewModel.getAllProductsRequestState ==
@@ -46,14 +47,11 @@ class _HomePageState extends State<HomePage> {
               ? const Center(
                   child: Text('Products could not be loaded'),
                 )
-              : _buildBody(
-                  MediaQuery.of(context).size,
-                  Theme.of(context),
-                ),
+              : _buildBody(),
     );
   }
 
-  Widget _buildBody(Size size, ThemeData theme) {
+  Widget _buildBody() {
     final _height = 536.h;
     final _width = 376.w;
     return SingleChildScrollView(
@@ -75,7 +73,6 @@ class _HomePageState extends State<HomePage> {
                 products: _homePageViewModel.products!,
                 categoryAndProductsWidgetViewModel:
                     CategoryAndProductsWidgetViewModel(
-                  updateUi: null,
                   homePageViewModel: _homePageViewModel,
                 ),
               ),

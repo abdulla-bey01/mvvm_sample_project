@@ -6,7 +6,7 @@ import '/ui/view_models/abstraction/i_category_and_products_widget_view_model.da
 class CategoryAndProductsWidgetViewModel
     extends ICategoryAndProductsWidgetViewModel {
   CategoryAndProductsWidgetViewModel({
-    required UpdateUi updateUi,
+    UpdateUi updateUi,
     required IHomePageViewModel homePageViewModel,
   }) : super(
           updateUi: updateUi,

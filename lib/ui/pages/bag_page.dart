@@ -6,6 +6,7 @@ class BagPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    debugPrint('build in bag_page');
     return Center(
       child: Text(
         'Bag Page',

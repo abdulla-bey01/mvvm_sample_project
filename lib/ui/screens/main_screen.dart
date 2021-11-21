@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '/ui/widgets/fade_indexed_stack.dart';
 import '/ui/view_models/concrency/shop_page_view_model.dart';
 import '/ui/view_models/concrency/home_page_view_model.dart';
 import '/ui/view_models/concrency/bottom_navigation_bar_view_model.dart';
@@ -43,10 +44,9 @@ class _MainScreenState extends State<MainScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.primary,
-      body: PageView(
-        controller: _mainScreenViewModel.pageController,
-        onPageChanged: _mainScreenViewModel.onPageChanged,
+      body: FadeIndexedStack(
         children: _pages,
+        index: _mainScreenViewModel.navBarIndex,
       ),
       bottomNavigationBar: CBottomNavigationBar(
         bottomNavigationBarViewModel: BottomNavigationBarViewModel(

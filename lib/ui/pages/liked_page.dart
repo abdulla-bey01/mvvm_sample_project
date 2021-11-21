@@ -6,6 +6,7 @@ class LikedPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    debugPrint('build in liked_page');
     return Center(
       child: Text(
         'Liked Page',

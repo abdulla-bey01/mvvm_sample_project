@@ -5,6 +5,7 @@ class ProfilePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    debugPrint('build in profile_page');
     return Center(
       child: Text(
         'Profile Page',

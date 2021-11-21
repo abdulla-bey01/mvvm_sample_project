@@ -1,8 +1,8 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '/data/models/product_model.dart';
 import '/ui/utils/styles.dart';
-
 import 'middle_sized_text_button.dart';
 
 class FamousSellProductWidget extends StatelessWidget {
@@ -22,10 +22,20 @@ class FamousSellProductWidget extends StatelessWidget {
         SizedBox(
           height: height,
           width: width,
-          child: Image.network(
-            product.attachmentsWithColors![0]?.attachment?.url ?? '',
+          child: CachedNetworkImage(
+            imageUrl: product.attachmentsWithColors![0]?.attachment?.url ?? '',
             fit: BoxFit.cover,
-            errorBuilder: (context, error, stackTrace) {
+            fadeInDuration: const Duration(milliseconds: 100),
+            fadeOutDuration: const Duration(milliseconds: 100),
+            progressIndicatorBuilder: (context, url, downloadProgress) {
+              return Center(
+                child: CircularProgressIndicator(
+                  value: downloadProgress.progress,
+                  valueColor: const AlwaysStoppedAnimation<Color>(Colors.red),
+                ),
+              );
+            },
+            errorWidget: (context, url, error) {
               return Center(
                 child: Padding(
                   padding: const EdgeInsets.all(32.0),
@@ -46,18 +56,6 @@ class FamousSellProductWidget extends StatelessWidget {
                       ),
                     ],
                   ),
-                ),
-              );
-            },
-            loadingBuilder: (context, child, loadingProgress) {
-              if (loadingProgress == null) return child;
-              return Center(
-                child: CircularProgressIndicator(
-                  value: loadingProgress.expectedTotalBytes != null
-                      ? loadingProgress.cumulativeBytesLoaded /
-                          loadingProgress.expectedTotalBytes!
-                      : null,
-                  valueColor: const AlwaysStoppedAnimation<Color>(Colors.red),
                 ),
               );
             },

@@ -1,4 +1,3 @@
-import 'package:flutter/animation.dart';
 import '/app/commands/abstraction/i_base_command.dart';
 import '/ui/view_models/abstraction/base_view_model.dart';
 import '/ui/view_models/concrency/main_screen_view_model.dart';
@@ -13,11 +12,6 @@ class ChangePageCommand extends IBaseCommand {
   void execute(BaseViewModel? viewModel,
       {dynamic firstParameter, dynamic secondParameter}) {
     if (viewModel is! MainScreenViewModel) return;
-    viewModel.pageController.animateToPage(
-      firstParameter!,
-      duration: const Duration(milliseconds: 500),
-      curve: Curves.ease,
-    );
     viewModel.updateUi!(() {
       viewModel.navBarIndex = firstParameter!;
     });
