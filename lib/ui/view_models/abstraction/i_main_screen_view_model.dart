@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import '/app/commands/abstraction/i_base_command.dart';
 import 'base_view_model.dart';
 
-class IMainScreenViewModel extends BaseViewModel {
+abstract class IMainScreenViewModel extends BaseViewModel {
   int navBarIndex;
   PageController pageController;
   IBaseCommand changePageCommand;

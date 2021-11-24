@@ -8,7 +8,7 @@ class FakeCategoriesNetworkManager extends INetworkManager
 
   @override
   Future<List<CategoryDto>> getAll() async {
-    await Future.delayed(const Duration(milliseconds: 500));
+    await Future.delayed(const Duration(milliseconds: 1000));
 
     return [
       CategoryDto.createNamed(

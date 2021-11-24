@@ -23,4 +23,7 @@ class LoginViewModel extends ILoginViewModel {
       loginModel.password = passwordController.text;
     });
   }
+
+  @override
+  void initialize() {}
 }

@@ -16,4 +16,11 @@ class HomePageViewModel extends IHomePageViewModel {
           passToProductDetailsCommand: PassToProductDetailsCommand(),
           updateProductFavorityCommand: UpdateProductFavorityCommand(),
         );
+
+  @override
+  void initialize() {
+    if (getAllProductsRequestState == RequestState.default_) {
+      getAllProductsCommand?.execute(this);
+    }
+  }
 }

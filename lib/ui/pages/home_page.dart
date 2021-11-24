@@ -19,18 +19,12 @@ class _HomePageState extends State<HomePage> {
   void initState() {
     _homePageViewModel = widget.homePageViewModel;
     _homePageViewModel.updateUi = setState;
-
-    if (_homePageViewModel.getAllProductsRequestState ==
-        RequestState.default_) {
-      _homePageViewModel.getAllProductsCommand?.execute(_homePageViewModel);
-    }
-
+    _homePageViewModel.initialize();
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
-    debugPrint('build in home_page');
     return Container(
       color: Theme.of(context).colorScheme.primary,
       child: (_homePageViewModel.getAllProductsRequestState ==

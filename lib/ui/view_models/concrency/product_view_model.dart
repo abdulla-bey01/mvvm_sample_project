@@ -14,4 +14,7 @@ class ProductViewModel extends IProductViewModel {
           homePageViewModel: homePageViewModel,
           product: product,
         );
+
+  @override
+  void initialize() {}
 }

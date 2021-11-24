@@ -17,4 +17,7 @@ class CategoriesViewModel extends ICategoriesViewModel {
           pageController: PageController(initialPage: 0),
           selectedCategoryIndex: 0,
         );
+
+  @override
+  void initialize() {}
 }

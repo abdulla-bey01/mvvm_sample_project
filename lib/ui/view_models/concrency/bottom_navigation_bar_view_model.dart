@@ -6,4 +6,7 @@ class BottomNavigationBarViewModel extends IBottomNavigationBarViewModel {
   BottomNavigationBarViewModel(
       {required IMainScreenViewModel mainScreenViewModel})
       : super(mainScreenViewModel: mainScreenViewModel);
+
+  @override
+  void initialize() {}
 }

@@ -13,7 +13,6 @@ class SubCategoryWidget extends StatelessWidget {
         super(key: key);
 
   final CategoryModel? _subCategoty;
-  
 
   @override
   Widget build(BuildContext context) {
@@ -43,13 +42,7 @@ class SubCategoryWidget extends StatelessWidget {
               ),
             ),
             Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.only(
-                  bottomRight: Radius.circular(8.0.r),
-                  topRight: Radius.circular(8.0.r),
-                ),
-                color: Colors.white.withOpacity(0.03),
-              ),
+              color: Colors.white.withOpacity(0.03),
               height: 100.0.h,
               width: (343.0 / 2).w,
               child: ImageWithLoadingWidget(

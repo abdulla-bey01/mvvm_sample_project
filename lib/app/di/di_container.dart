@@ -1,3 +1,5 @@
+import '/data/remote/abstraction/i_liked_item_network_manager.dart';
+import '/data/remote/concrency/fake/fake_liked_items_network_manager.dart';
 import '/data/remote/concrency/fake/fake_bag_network_manager.dart';
 import '/data/remote/abstraction/i_bag_network_manager.dart';
 import '/data/remote/abstraction/i_categories_network_manager.dart';
@@ -15,6 +17,7 @@ class AppDiContainer {
   late IProductsNetworkManager productsNetworkManager;
   late ICategoriesNetworkManager categoriessNetworkManager;
   late IBagNetworkManager bagNetworkManager;
+  late ILikedItemsNetworkManager likedItemsService;
 
   static AppDiContainer get instance => _instance ??= AppDiContainer._();
   static AppDiContainer? _instance;
@@ -27,5 +30,6 @@ class AppDiContainer {
     productsNetworkManager = FakeProductsNetworkManager();
     categoriessNetworkManager = FakeCategoriesNetworkManager();
     bagNetworkManager = FakeBagNetworkManager();
+    likedItemsService = FakeLikedItemsNetworkManager();
   }
 }

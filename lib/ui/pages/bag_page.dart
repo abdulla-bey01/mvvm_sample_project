@@ -19,10 +19,7 @@ class _BagPageState extends State<BagPage> {
   void initState() {
     _bagPageViewModel = widget.bagPageViewModel;
     _bagPageViewModel.updateUi = setState;
-    //fetch items
-    if (_bagPageViewModel.getBagItemsRequestState == RequestState.default_) {
-      _bagPageViewModel.getBagItemCommand.execute(_bagPageViewModel);
-    }
+    _bagPageViewModel.initialize();
     super.initState();
   }
 

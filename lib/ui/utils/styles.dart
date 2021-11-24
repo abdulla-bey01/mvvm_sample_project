@@ -225,6 +225,14 @@ TextStyle size16TextStyle = TextStyle(
   letterSpacing: 0.2,
 );
 
+TextStyle size14TextStyle = TextStyle(
+  //  //  fontFamily: _textStyleName,
+  color: Colors.white,
+  fontSize: 14.0.sp,
+  fontWeight: FontWeight.w400,
+  letterSpacing: 0.2,
+);
+
 TextStyle size24TextStyle = TextStyle(
   //  //  fontFamily: _textStyleName,
   color: Colors.white,

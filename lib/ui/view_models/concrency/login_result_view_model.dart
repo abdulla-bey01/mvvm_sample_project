@@ -10,4 +10,7 @@ class LoginResultViewModel extends ILoginResultViewModel {
           tryLoginAgainCommand: TryLoginAgainCommand(),
           passToMainScreenCommand: PassToMainScreenCommand(),
         );
+
+  @override
+  void initialize() {}
 }

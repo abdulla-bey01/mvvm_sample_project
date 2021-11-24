@@ -5,7 +5,7 @@ import '/ui/view_models/concrency/bag_page_view_model.dart';
 import '/app/commands/abstraction/i_base_command.dart';
 import '/ui/view_models/abstraction/base_view_model.dart';
 
-class GetBatItemsCommand extends IBaseCommand {
+class GetBagItemsCommand extends IBaseCommand {
   @override
   bool canExecute(data) {
     return true;

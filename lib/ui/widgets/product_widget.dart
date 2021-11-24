@@ -93,7 +93,6 @@ class _ProductWidgetState extends State<ProductWidget> {
                     .updateProductFavorityCommand
                     ?.execute(widget.productViewModel.homePageViewModel,
                         firstParameter: _product.id),
-                //widget.productViewModel.updateProductFavority(_product.id),
                 child: Container(
                   width: 36.0.w,
                   height: 36.0.h,

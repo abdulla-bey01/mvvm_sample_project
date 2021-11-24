@@ -19,54 +19,49 @@ class _ShopPageState extends State<ShopPage> {
   void initState() {
     _shopPageViewModel = widget.shopPageViewModel;
     _shopPageViewModel.categoriesViewModel.updateUi = setState;
-    //initialize categories
-    if (_shopPageViewModel.categoriesViewModel.getAllCategoriesRequestState ==
-        RequestState.default_) {
-      _shopPageViewModel.categoriesViewModel.getAllCategoriesCommand
-          ?.execute(_shopPageViewModel.categoriesViewModel);
-    }
+    _shopPageViewModel.initialize();
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
-    debugPrint('build in shop_page');
     return Scaffold(
-        backgroundColor: Theme.of(context).colorScheme.primary,
-        appBar: AppBar(
-          title: Text(
-            'Shop',
-            style: headline3Style,
-          ),
-          elevation: 0,
-          actions: [
-            Padding(
-              padding: EdgeInsets.only(right: 11.0.w),
-              child: const Icon(
-                Icons.search,
-                size: 24.0,
-              ),
-            ),
-          ],
+      backgroundColor: Theme.of(context).colorScheme.primary,
+      appBar: AppBar(
+        title: Text(
+          'Shop',
+          style: headline3Style,
         ),
-        body: (_shopPageViewModel
-                        .categoriesViewModel.getAllCategoriesRequestState ==
-                    RequestState.default_ ||
-                _shopPageViewModel
-                        .categoriesViewModel.getAllCategoriesRequestState ==
-                    RequestState.waiting)
-            ? const Center(
-                child: CircularProgressIndicator(
-                  valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
-                ),
-              )
-            : _shopPageViewModel
-                        .categoriesViewModel.getAllCategoriesRequestState ==
-                    RequestState.unsuccesfull
-                ? const Center(
-                    child: Text('Categories could not be loaded'),
-                  )
-                : _buildBody());
+        elevation: 0,
+        actions: [
+          Padding(
+            padding: EdgeInsets.only(right: 11.0.w),
+            child: const Icon(
+              Icons.search,
+              size: 24.0,
+            ),
+          ),
+        ],
+      ),
+      body: (_shopPageViewModel
+                      .categoriesViewModel.getAllCategoriesRequestState ==
+                  RequestState.default_ ||
+              _shopPageViewModel
+                      .categoriesViewModel.getAllCategoriesRequestState ==
+                  RequestState.waiting)
+          ? const Center(
+              child: CircularProgressIndicator(
+                valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
+              ),
+            )
+          : _shopPageViewModel
+                      .categoriesViewModel.getAllCategoriesRequestState ==
+                  RequestState.unsuccesfull
+              ? const Center(
+                  child: Text('Categories could not be loaded'),
+                )
+              : _buildBody(),
+    );
   }
 
   Widget _buildBody() {

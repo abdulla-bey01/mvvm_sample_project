@@ -26,4 +26,5 @@ abstract class BaseViewModel {
   BaseViewModel({
     this.updateUi,
   });
+  void initialize();
 }

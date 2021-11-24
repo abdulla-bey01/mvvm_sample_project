@@ -12,4 +12,7 @@ class CategoryAndProductsWidgetViewModel
           updateUi: updateUi,
           homePageViewModel: homePageViewModel,
         );
+
+  @override
+  void initialize() {}
 }
