@@ -146,7 +146,7 @@ class _LikedPageState extends State<LikedPage> {
                       });
                     },
                     child: Icon(
-                      _showAsGrid ? Icons.grid_on : Icons.grid_off,
+                      !_showAsGrid ? Icons.grid_on : Icons.grid_off,
                       color: Colors.white,
                     ),
                   ),

@@ -15,7 +15,7 @@ class FakeLikedItemsNetworkManager extends INetworkManager
 
   @override
   Future<List<LikedItemDto>> getItems() async {
-    await Future.delayed(const Duration(milliseconds: 3000));
+    await Future.delayed(const Duration(milliseconds: 2000));
     ProductDto _product = ProductDto.createNamed(
       id: 1,
       title: 'Iphone 12 pro max',
