@@ -1,11 +1,8 @@
-import '/app/network/abstraction/i_network_manager.dart';
+import '/data/remote/abstraction/fake/i_fake_bag_network_manager.dart';
 import '/data/dtos/bag_item_dto.dart';
 import '/data/dtos/rgb_color_dto.dart';
-import '/data/remote/abstraction/i_bag_network_manager.dart';
 
-class FakeBagNetworkManager extends INetworkManager
-    implements IBagNetworkManager {
-  FakeBagNetworkManager() : super(baseUrl: 'my-ecommerce.com');
+class FakeBagNetworkManager extends IFakeBagNetworkManager {
 
   @override
   Future<List<BagItemDto>> getItems() async {

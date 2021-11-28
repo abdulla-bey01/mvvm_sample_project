@@ -1,3 +1,4 @@
+import '../../abstraction/fake/i_fake_liked_items_network_manager.dart';
 import '/data/dtos/liked_item_dto.dart';
 import '/app/helpers/enums/attachment_type_enum.dart';
 import '/data/dtos/attachment_dto.dart';
@@ -5,13 +6,9 @@ import '/data/dtos/category_dto.dart';
 import '/data/dtos/color_vs_attachment_dto.dart';
 import '/data/dtos/product_dto.dart';
 import '/data/dtos/vendor_dto.dart';
-import '/data/remote/abstraction/i_liked_item_network_manager.dart';
-import '/app/network/abstraction/i_network_manager.dart';
 import '/data/dtos/rgb_color_dto.dart';
 
-class FakeLikedItemsNetworkManager extends INetworkManager
-    implements ILikedItemsNetworkManager {
-  FakeLikedItemsNetworkManager() : super(baseUrl: 'my-ecommerce.com');
+class FakeLikedItemsNetworkManager extends IFakeLikedItemsNetworkManager {
 
   @override
   Future<List<LikedItemDto>> getItems() async {

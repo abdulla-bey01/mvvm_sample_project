@@ -1,8 +1,8 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:mvvm_simple/data/remote/abstraction/i_bag_network_manager.dart';
-import 'package:mvvm_simple/data/remote/abstraction/i_categories_network_manager.dart';
-import 'package:mvvm_simple/data/remote/abstraction/i_liked_item_network_manager.dart';
-import 'package:mvvm_simple/data/remote/abstraction/i_products_network_manager.dart';
+import 'package:mvvm_simple/data/remote/abstraction/main_abctraction/i_bag_network_manager.dart';
+import 'package:mvvm_simple/data/remote/abstraction/main_abctraction/i_categories_network_manager.dart';
+import 'package:mvvm_simple/data/remote/abstraction/main_abctraction/i_liked_items_network_manager.dart';
+import 'package:mvvm_simple/data/remote/abstraction/main_abctraction/i_products_network_manager.dart';
 import 'package:mvvm_simple/data/remote/concrency/fake/fake_bag_network_manager.dart';
 import 'package:mvvm_simple/data/remote/concrency/fake/fake_categories_network_manager.dart';
 import 'package:mvvm_simple/data/remote/concrency/fake/fake_liked_items_network_manager.dart';

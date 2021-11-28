@@ -7,7 +7,7 @@ class LikedItemsService extends ILikedItemsService {
   @override
   Future<List<LikedItemModel?>?> getItems() async {
     final _itemsFromServer =
-        await AppDiContainer.instance.likedItemsService.getItems();
+        await AppDiContainer.instance.likedItemsNetworkManager.getItems();
     final _migrateditems = _itemsFromServer
         .map((e) => LikedItemMigrator().migrateToModel(e))
         .toList();

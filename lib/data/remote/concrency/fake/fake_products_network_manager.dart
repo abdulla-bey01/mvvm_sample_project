@@ -1,16 +1,12 @@
+import '/data/remote/abstraction/fake/i_fake_products_network_manager.dart';
 import '/app/helpers/enums/attachment_type_enum.dart';
-import '/app/network/abstraction/i_network_manager.dart';
 import '/data/dtos/attachment_dto.dart';
 import '/data/dtos/category_dto.dart';
 import '/data/dtos/color_vs_attachment_dto.dart';
 import '/data/dtos/product_dto.dart';
 import '/data/dtos/rgb_color_dto.dart';
 import '/data/dtos/vendor_dto.dart';
-import '../../abstraction/i_products_network_manager.dart';
-
-class FakeProductsNetworkManager extends INetworkManager
-    implements IProductsNetworkManager {
-  FakeProductsNetworkManager() : super(baseUrl: 'my-ecommerce.com');
+class FakeProductsNetworkManager extends IFakeProductsNetworkManager {
 
   @override
   Future<List<ProductDto>> getAll() async {
