@@ -12,7 +12,7 @@ class ProfilePageViewModel extends IProfilePageViewModel {
             fullname: 'Saleh Abdullabayli',
             email: 'abdullabey085@gmail.com',
             imgUrl:
-                'https://instagram.fgyd6-1.fna.fbcdn.net/v/t51.2885-15/e35/p1080x1080/228640666_224555699564584_3086103443573315044_n.jpg?_nc_ht=instagram.fgyd6-1.fna.fbcdn.net&_nc_cat=104&_nc_ohc=njgQNyri4hoAX8KgpXv&edm=AABBvjUBAAAA&ccb=7-4&oh=937407f3c1181fe427efc91c8449e76b&oe=61A649CD&_nc_sid=83d603',
+                'https://instagram.fgyd6-1.fna.fbcdn.net/v/t51.2885-15/e35/s1080x1080/130735229_867525813990164_2412543950319125945_n.jpg?_nc_ht=instagram.fgyd6-1.fna.fbcdn.net&_nc_cat=108&_nc_ohc=LJheycjER_0AX-fa7A4&edm=AP_V10EBAAAA&ccb=7-4&oh=fa2cd3eed12a8dafeee4df4bef38aafc&oe=61AF3B6D&_nc_sid=4f375e',
           ),
         );
 
